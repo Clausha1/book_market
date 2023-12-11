@@ -1,9 +1,11 @@
 #ifndef _BOOK_H_
 #define _BOOK_H_
-#include <string>
-#include <vector>
 using namespace std;
-class Book{
+#include<vector>
+#include<string>
+#include "book_system.h"
+class Book : BookSystem
+{
 private:
   unsigned int bookID;
   string bookname;
@@ -13,6 +15,7 @@ private:
 public:
   Book(int ID)
   {
+    BookSystem();
    bookID=ID;
   }
   void SetBookName(string Name);

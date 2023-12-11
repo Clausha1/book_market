@@ -7,7 +7,8 @@ SOURCES += main.cpp \
     book.cpp \
     customer.cpp \
     employee.cpp \
-    invoice.cpp
+    invoice.cpp \
+    book_system.cpp
 
 include(deployment.pri)
 qtcAddDeployment()

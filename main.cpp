@@ -1,20 +1,19 @@
 #include <iostream>
 #include "book.h"
+#include "book_system.h"
 int main()
 {
+  BookSystem S = new BookSystem;
+  S.NewBook("ABCD", 10, "F7");
+
  Book* b1 = new Book(1);
- string in;
- string L;
- int q;
+
  vector<unsigned int> ref;
- cin >> in;
- b1->SetBookName(in);
+ b1->SetBookName(S.GetNewBookName());
  cout << b1->GetBookName();
- cin >> q;
- b1->SetQuantity(q);
+ b1->SetQuantity(S.GetNewBookQuantity());
  cout << b1->GetQuantity();
- cin >> L;
- b1->SetLocation(L);
+ b1->SetLocation(S.GetNewBookLocation());
  cout << b1->GetLocation();
  if(b1->SetBuyerID(1000)){
      cout << "Pasted";
