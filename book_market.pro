@@ -8,6 +8,7 @@ SOURCES += main.cpp \
     customer.cpp \
     employee.cpp \
     invoice.cpp \
+    user.cpp \
     book_system.cpp
 
 include(deployment.pri)
@@ -18,5 +19,6 @@ HEADERS += \
     book.h \
     customer.h \
     employee.h \
+    user.h \
     invoice.h
 
