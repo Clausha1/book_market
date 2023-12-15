@@ -25,6 +25,7 @@ public:
   vector<Book*> SortBooksByPages(bool s);
   vector<Book*> SortBooksByAuthor(bool s);
   vector<Book*> SortBooksByPrice(bool s);
+  vector<Book*> Find(string Name);
 };
 #endif // BOOK_SYSTEM
 

@@ -4,13 +4,6 @@ string Book::GetBookName()
   return bookname;
 }
 
-Book* Book::find(string name){
-  if (name == bookname)
-    {
-      return *this;
-    }
-}
-
 void Book::SetBookName(string Name)
 {
   bookname = Name;
