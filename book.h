@@ -3,8 +3,7 @@
 using namespace std;
 #include<vector>
 #include<string>
-#include "book_system.h"
-class Book : BookSystem
+class Book
 {
 private:
   unsigned int bookID;
@@ -15,7 +14,6 @@ private:
 public:
   Book(int ID)
   {
-    BookSystem();
    bookID=ID;
   }
   void SetBookName(string Name);
