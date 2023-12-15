@@ -18,4 +18,14 @@ void user::ShowBook(vector<Book*> Books)
       }
 }
 
+void user::setsysref(BookSystem* ref)
+{
+    sysref = ref;
+}
 
+string user::FindBook()
+{
+    cout << "Find: ";
+    string name;
+    cin >> name;
+}

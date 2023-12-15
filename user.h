@@ -4,11 +4,16 @@
 #include <iostream>
 using namespace std;
 #include "book.h"
+#include "book_system.h"
 
 class user
 {
+protected:
+    BookSystem* sysref;
+
 public:
-    void FindBook();
+    string FindBook();
+    void setsysref(BookSystem* ref);
     void SortBook();
     void ShowBook(vector<Book*> Books);
     virtual void Menu()=0;
