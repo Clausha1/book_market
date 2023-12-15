@@ -20,6 +20,11 @@ public:
   vector<LocList> ListOfBuyerBooksLocations(unsigned int BuyerID);
   vector<LocList> ListOfBooksLocations(vector<int> MarkedBooksList);
   vector<int> FindOnRequest(vector<bool> FindMarked, vector<string> FindPrompts);
+  vector<Book*> SortBooksByName(bool s);
+  vector<Book*> SortBooksByQuantity(bool s);
+  vector<Book*> SortBooksByPages(bool s);
+  vector<Book*> SortBooksByAuthor(bool s);
+  vector<Book*> SortBooksByPrice(bool s);
 };
 #endif // BOOK_SYSTEM
 
