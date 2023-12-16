@@ -3,6 +3,17 @@
 #include <string>
 #include <string.h>
 
+string str_tolower(string str)
+{
+  string s;
+  s.resize(str.size());
+  for (unsigned int i=0; i<str.size(); i++)
+  {
+       s[i]=tolower(str[i]);
+    }
+  return s;
+}
+
 void BookSystem::NewBook(string Name, int q, string Loc){
   unsigned int max = books.size();
   books.push_back(new Book(max+1));
@@ -21,7 +32,7 @@ vector<Book*> BookSystem::Find(string Name)
   vector<Book*> b;
   for (unsigned int i=0; i<books.size(); i++)
   {
-      if (strcmp(books[i]->GetBookName().substr(0, strlen(Name.c_str())).c_str(), Name.c_str())==0)
+      if (strcmp(str_tolower(books[i]->GetBookName()).substr(0, strlen(Name.c_str())).c_str(), str_tolower(Name).c_str())==0)
       {
         b.push_back(books[i]);
       }
