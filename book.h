@@ -10,6 +10,7 @@ private:
   string bookname;
   unsigned int quantity;
   string location;
+  unsigned int Price;
   vector<unsigned int> buyerID;
 public:
   Book(int ID)
@@ -17,6 +18,8 @@ public:
    bookID=ID;
   }
   void SetBookName(string Name);
+  void SetBookPrice(unsigned int p);
+  unsigned int GetBookPrice();
   void SetLocation(string Loc);
   bool SetBuyerID(unsigned int ID);
   unsigned int GetBookID();

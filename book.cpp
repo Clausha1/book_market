@@ -50,3 +50,13 @@ unsigned int Book::GetBookID()
 {
 return bookID;
 }
+
+
+void Book::SetBookPrice(unsigned int p)
+{
+price=p;
+}
+unsigned int Book::GetBookPrice()
+{
+  return price;
+}
