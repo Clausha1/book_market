@@ -7,6 +7,7 @@ void customer::Menu()
 {
 cout << "1) Show All Books" << endl;
 cout << "2) Search Book" << endl;
+cout << "3) Sort Books" << endl;
 cout << endl;
 cout << "Select action: ";
 int x;
@@ -16,19 +17,13 @@ cout << endl;
 switch(x)
 {
 case 1:
-    ShowBook(sysref->GetAllBooks());
-    system ("pause");
-    system("cls");
-    Menu();
+    Show();
 break;
 case 2:
-    cout << "Find by Template: ";
-    string temp;
-    cin >> temp;
-    ShowBook(sysref->Find(temp));
-    system ("pause");
-    system("cls");
-    Menu();
+    Find();
+break;
+case 3:
+    Sort();
 break;
 }
 }
