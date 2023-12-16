@@ -10,7 +10,7 @@ private:
   string bookname;
   unsigned int quantity;
   string location;
-  unsigned int Price;
+  unsigned int price;
   vector<unsigned int> buyerID;
 public:
   Book(int ID)

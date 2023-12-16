@@ -15,11 +15,10 @@ protected:
   vector<int> findList;
   vector<Book*> books;
 public:
-  void NewBook(string Name, int q, string Loc);
+  void NewBook(string Name, int q, string Loc, unsigned int p);
   vector<Book*> GetAllBooks();
   vector<LocList> ListOfBuyerBooksLocations(unsigned int BuyerID);
   vector<LocList> ListOfBooksLocations(vector<int> MarkedBooksList);
-  vector<int> FindOnRequest(vector<bool> FindMarked, vector<string> FindPrompts);
   vector<Book*> Sort(int par, bool s);
   vector<Book*> Find(string Name);
 };

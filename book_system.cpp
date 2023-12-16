@@ -14,14 +14,6 @@ string str_tolower(string str)
   return s;
 }
 
-void BookSystem::NewBook(string Name, int q, string Loc){
-  unsigned int max = books.size();
-  books.push_back(new Book(max+1));
-  books[max]->SetBookName(Name);
-  books[max]->SetQuantity(q);
-  books[max]->SetLocation(Loc);
- }
-
 bool compareBooksByTitleAscending(Book* a, Book* b) {
     return (a->GetBookName() < b->GetBookName());
 }
@@ -37,6 +29,23 @@ bool compareBooksByQuantityAscending(Book* a, Book* b) {
 bool compareBooksByQuantityDescending(Book* a, Book* b) {
     return (a->GetQuantity() > b->GetQuantity());
 }
+
+bool compareBooksByPriceAscending(Book* a, Book* b) {
+    return (a->GetBookPrice() < b->GetBookPrice());
+}
+
+bool compareBooksByPriceDescending(Book* a, Book* b) {
+    return (a->GetBookPrice() > b->GetBookPrice());
+}
+
+void BookSystem::NewBook(string Name, int q, string Loc, unsigned int p){
+  unsigned int max = books.size();
+  books.push_back(new Book(max+1));
+  books[max]->SetBookName(Name);
+  books[max]->SetQuantity(q);
+  books[max]->SetLocation(Loc);
+  books[max]->SetBookPrice(p);
+ }
 
 vector<Book*> BookSystem::GetAllBooks(){
   return books;
@@ -70,6 +79,13 @@ vector<Book*> BookSystem::Sort(int par, bool s){ // s: 1 - по возраста
           sort(sortBooks.begin(), sortBooks.end(), compareBooksByQuantityAscending);
          } else {
           sort(sortBooks.begin(), sortBooks.end(), compareBooksByQuantityDescending);
+         }
+      break;
+    case 3:
+      if (s) {
+          sort(sortBooks.begin(), sortBooks.end(), compareBooksByPriceAscending);
+         } else {
+          sort(sortBooks.begin(), sortBooks.end(), compareBooksByPriceDescending);
          }
       break;
     default:
