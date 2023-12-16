@@ -19,10 +19,6 @@ int main()
   {
       user *U= new customer;
       U->setsysref(S);
-      U->ShowBook(S->Sort(1, 1));
-      U->ShowBook(S->Sort(1, 0));
-      U->ShowBook(S->Sort(2, 1));
-      U->ShowBook(S->Sort(2, 0));
       U->Menu();
   }
 }

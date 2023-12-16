@@ -16,6 +16,11 @@ public:
     void setsysref(BookSystem* ref);
     void SortBook();
     void ShowBook(vector<Book*> Books);
+
+    void Show();
+    void Find();
+    void Sort();
+
     virtual void Menu()=0;
 };
 
