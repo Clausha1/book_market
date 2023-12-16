@@ -8,7 +8,7 @@ int main()
     BookSystem *S = new BookSystem;
     S->NewBook("ABCD", 10, "F7", 1);
     S->NewBook("EFGHRTY", 23, "A2", 2);
-    S->NewBook("TORT", 12, "A2", 3);\
+    S->NewBook("TORT", 12, "A2", 3);
     S->NewBook("AC", 12,"F1", 4);
 
   int c;
