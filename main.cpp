@@ -6,7 +6,6 @@
 int main()
 {
     BookSystem *S = new BookSystem;
-  int c;
   if(S->NewBook("ABCD", 10, "F7", 1))
     {
       cout << "Created";
@@ -27,6 +26,7 @@ int main()
   {
     cout << "Created";
   }
+  int c;
   cout << "Customer (1) or Employee (2): ";
   cin >> c;
   cout << endl;
