@@ -38,13 +38,50 @@ bool compareBooksByPriceDescending(Book* a, Book* b) {
     return (a->GetBookPrice() > b->GetBookPrice());
 }
 
-void BookSystem::NewBook(string Name, int q, string Loc, unsigned int p){
-  unsigned int max = books.size();
-  books.push_back(new Book(max+1));
+bool BookSystem::NewBook(string Name, int q, string Loc, unsigned int p){
+  unsigned int max = books.size()+1;
+  for (unsigned int i=0; i<books.size();i++)
+    {
+      if (books[i]->GetBookName() == Name)
+        {
+          return 0;
+        }
+    }
+  unsigned int max_id = 0;
+  for (unsigned int i=0; i<books.size();i++)
+    {
+      if (books[i]->GetBookID() > max_id)
+        {
+          max_id = books[i]->GetBookID();
+        }
+    }
+  bool isnotinitializedid =0;
+  for (unsigned int i =1; i<max_id;i++)
+    {
+      for (unsigned int j=0; j<books.size(); j++)
+        {
+          if(books[j]->GetBookID() == i)
+            {
+              isnotinitializedid =0;
+              break;
+            }
+          else
+          {
+              isnotinitializedid =1;
+            }
+        }
+      if (isnotinitializedid)
+        {
+          max = i;
+          break;
+        }
+    }
+  books.push_back(new Book(max));
   books[max]->SetBookName(Name);
   books[max]->SetQuantity(q);
   books[max]->SetLocation(Loc);
   books[max]->SetBookPrice(p);
+  return 1;
  }
 
 vector<Book*> BookSystem::GetAllBooks(){
@@ -92,4 +129,10 @@ vector<Book*> BookSystem::Sort(int par, bool s){ // s: 1 - по возраста
       break;
     }
   return sortBooks;
+}
+
+
+bool BookSystem::NewUser(string nick, string pass, int status)
+{
+
 }

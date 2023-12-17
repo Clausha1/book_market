@@ -1,27 +1,22 @@
-#ifndef USER_H
-#define USER_H
-#include <vector>
-#include <iostream>
+#ifndef _USER_H_
+#define _USER_H_
+#include <string.h>
+#include <string>
 using namespace std;
-#include "book.h"
-#include "book_system.h"
-
 class user
 {
-protected:
-    BookSystem* sysref;
-
+private:
+  string nickname;
+  string password;
+  int status;
 public:
-    string FindBook();
-    void setsysref(BookSystem* ref);
-    void SortBook();
-    void ShowBook(vector<Book*> Books);
-
-    void Show();
-    void Find();
-    void Sort();
-
-    virtual void Menu()=0;
+  user();
+  void SetNickname(string n);
+  string GetNickname();
+  void SetPassword(string p);
+  string GetPassword();
+  void SetStatus(int s);
+  int GetStatus();
 };
 
 #endif // USER_H

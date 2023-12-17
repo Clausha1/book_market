@@ -2,7 +2,8 @@
 #define _BOOK_SYSTEM_H_
 #include<vector>
 #include<string>
-#include<book.h>
+#include"book.h"
+#include"user.h"
 using namespace std;
 struct LocList{
 public:
@@ -14,8 +15,10 @@ protected:
   vector<LocList> locListR;
   vector<int> findList;
   vector<Book*> books;
+
 public:
-  void NewBook(string Name, int q, string Loc, unsigned int p);
+  bool NewBook(string Name, int q, string Loc, unsigned int p);
+  bool NewUser(string nick, string pass, int status);
   vector<Book*> GetAllBooks();
   vector<LocList> ListOfBuyerBooksLocations(unsigned int BuyerID);
   vector<LocList> ListOfBooksLocations(vector<int> MarkedBooksList);

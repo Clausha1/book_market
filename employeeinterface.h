@@ -1,0 +1,5 @@
+#ifndef _EMPLOYEEINTERFACE_H_
+#define _EMPLOYEEINTERFACE_H_
+
+#endif // EMPLOYEE
+

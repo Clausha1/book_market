@@ -1,9 +1,9 @@
 #include "book.h"
 #include "book_system.h"
-#include "user.h"
-#include "customer.h"
+#include "userinterface.h"
+#include "customerinterface.h"
 
-void customer::Menu()
+void CustomerInterface::Menu()
 {
 cout << "1) Show All Books" << endl;
 cout << "2) Search Book" << endl;

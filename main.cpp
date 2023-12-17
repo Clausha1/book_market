@@ -1,15 +1,31 @@
 #include <iostream>
 #include "book.h"
 #include "book_system.h"
-#include "user.h"
-#include "customer.h"
+#include "userinterface.h"
+#include "customerinterface.h"
 int main()
 {
     BookSystem *S = new BookSystem;
-    S->NewBook("ABCD", 10, "F7", 1);
-    S->NewBook("EFGHRTY", 23, "A2", 2);
-    S->NewBook("TORT", 12, "A2", 3);\
-    S->NewBook("AC", 12,"F1", 4);
+    if(S->NewBook("ABCD", 10, "F7", 1))
+      {
+        cout << "Created";
+      }
+    if(S->NewBook("ABCD", 10, "F7", 1))
+      {
+        cout << "Created";
+      }
+    if(S->NewBook("EFGHRTY", 23, "A2", 2))
+    {
+      cout << "Created";
+    }
+    if(S->NewBook("TORT", 12, "A2", 3))
+    {
+      cout << "Created";
+    }\
+    if(S->NewBook("AC", 12,"F1", 4))
+    {
+      cout << "Created";
+    }
 
   int c;
   cout << "Customer (1) or Employee (2): ";
@@ -17,7 +33,7 @@ int main()
   cout << endl;
   if(c == 1)
   {
-      user *U= new customer;
+      UserInterface *U= new CustomerInterface;
       U->setsysref(S);
       U->Menu();
   }
