@@ -9,7 +9,10 @@ protected:
   vector<int> cart;
 
 public:
+    void ShowCart(vector<int> cartList);
     void Menu();
+    bool AddToCart(unsigned int order);
+    vector<int> ProvideOrder();
 };
 
 #endif // CUSTOMER
