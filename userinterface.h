@@ -12,7 +12,6 @@ protected:
     BookSystem* sysref;
 
 public:
-    string FindBook();
     void setsysref(BookSystem* ref);
     void SortBook();
     void ShowBook(vector<Book*> Books);
