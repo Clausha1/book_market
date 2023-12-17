@@ -18,7 +18,6 @@ protected:
 
 public:
   bool NewBook(string Name, int q, string Loc, unsigned int p);
-  bool NewUser(string nick, string pass, int status);
   vector<Book*> GetAllBooks();
   vector<LocList> ListOfBuyerBooksLocations(unsigned int BuyerID);
   vector<LocList> ListOfBooksLocations(vector<int> MarkedBooksList);

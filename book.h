@@ -13,7 +13,7 @@ private:
   unsigned int price;
   vector<unsigned int> buyerID;
 public:
-  Book(int ID)
+  Book(unsigned int ID)
   {
    bookID=ID;
   }

@@ -39,7 +39,7 @@ bool compareBooksByPriceDescending(Book* a, Book* b) {
 }
 
 bool BookSystem::NewBook(string Name, int q, string Loc, unsigned int p){
-  unsigned int max = books.size()+1;
+  unsigned int max = books.size();
   for (unsigned int i=0; i<books.size();i++)
     {
       if (books[i]->GetBookName() == Name)
@@ -72,11 +72,11 @@ bool BookSystem::NewBook(string Name, int q, string Loc, unsigned int p){
         }
       if (isnotinitializedid)
         {
-          max = i;
+          max = i-1;
           break;
         }
     }
-  books.push_back(new Book(max));
+  books.push_back(new Book(max+1));
   books[max]->SetBookName(Name);
   books[max]->SetQuantity(q);
   books[max]->SetLocation(Loc);
@@ -129,10 +129,4 @@ vector<Book*> BookSystem::Sort(int par, bool s){ // s: 1 - по возраста
       break;
     }
   return sortBooks;
-}
-
-
-bool BookSystem::NewUser(string nick, string pass, int status)
-{
-
 }

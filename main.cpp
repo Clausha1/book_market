@@ -6,28 +6,27 @@
 int main()
 {
     BookSystem *S = new BookSystem;
-    if(S->NewBook("ABCD", 10, "F7", 1))
-      {
-        cout << "Created";
-      }
-    if(S->NewBook("ABCD", 10, "F7", 1))
-      {
-        cout << "Created";
-      }
-    if(S->NewBook("EFGHRTY", 23, "A2", 2))
-    {
-      cout << "Created";
-    }
-    if(S->NewBook("TORT", 12, "A2", 3))
-    {
-      cout << "Created";
-    }\
-    if(S->NewBook("AC", 12,"F1", 4))
-    {
-      cout << "Created";
-    }
-
   int c;
+  if(S->NewBook("ABCD", 10, "F7", 1))
+    {
+      cout << "Created";
+    }
+  if(S->NewBook("ABCD", 10, "F7", 1))
+    {
+      cout << "Created";
+    }
+  if(S->NewBook("EFGHRTY", 23, "A2", 2))
+  {
+    cout << "Created";
+  }
+  if(S->NewBook("TORT", 12, "A2", 3))
+  {
+    cout << "Created";
+  }\
+  if(S->NewBook("AC", 12,"F1", 4))
+  {
+    cout << "Created";
+  }
   cout << "Customer (1) or Employee (2): ";
   cin >> c;
   cout << endl;
@@ -37,4 +36,5 @@ int main()
       U->setsysref(S);
       U->Menu();
   }
+    return 0;
 }

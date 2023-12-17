@@ -25,13 +25,6 @@ void UserInterface::setsysref(BookSystem* ref)
     sysref = ref;
 }
 
-string UserInterface::FindBook()
-{
-    cout << "Find: ";
-    string name;
-    cin >> name;
-}
-
 void UserInterface::Show()
 {
     ShowBook(sysref->GetAllBooks());
