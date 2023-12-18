@@ -2,7 +2,7 @@
 #include "book_system.h"
 #include "userinterface.h"
 #include "customerinterface.h"
-void CustomerInterface::ShowCart(vector<int> cartList){
+void CustomerInterface::ShowCart(){
   vector<Book*> bookc = sysref->GetAllBooks();
   vector<Book*> outputOrder;
   for (unsigned int i=0; i<bookc.size();i++){
@@ -54,7 +54,7 @@ case 4:
      system("pause");
     Menu();
   case 5:
-    ShowCart(cart);
+    ShowCart();
     system("pause");
     Menu();
 }
@@ -78,7 +78,7 @@ bool CustomerInterface::AddToCart(unsigned int order){
 
 
 }
-vector<int> CustomerInterface::ProvideOrder(){
+vector<unsigned int> CustomerInterface::ProvideOrder(){
   return cart;
 
 }

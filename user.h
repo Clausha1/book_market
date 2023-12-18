@@ -3,7 +3,7 @@
 #include <string.h>
 #include <string>
 using namespace std;
-class user
+class User
 {
 private:
   string nickname;

@@ -6,13 +6,13 @@
 class CustomerInterface : public UserInterface
 {
 protected:
-  vector<int> cart;
+  vector<unsigned int> cart;
 
 public:
-    void ShowCart(vector<int> cartList);
+    void ShowCart();
     void Menu();
     bool AddToCart(unsigned int order);
-    vector<int> ProvideOrder();
+    vector<unsigned int> ProvideOrder();
 };
 
 #endif // CUSTOMER

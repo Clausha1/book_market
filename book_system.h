@@ -13,14 +13,13 @@ public:
 class BookSystem{
 protected:
   vector<LocList> locListR;
-  vector<int> findList;
   vector<Book*> books;
-
+  vector<User*> users;
 public:
   bool NewBook(string Name, int q, string Loc, unsigned int p);
   vector<Book*> GetAllBooks();
   vector<LocList> ListOfBuyerBooksLocations(unsigned int BuyerID);
-  vector<LocList> ListOfBooksLocations(vector<int> MarkedBooksList);
+  vector<LocList> ListOfBooksLocations(vector<unsigned int> MarkedBooksList);
   vector<Book*> Sort(int par, bool s);
   vector<Book*> Find(string Name);
 };

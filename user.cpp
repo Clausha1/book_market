@@ -1,36 +1,36 @@
 #include "user.h"
 
-user::user()
+User::user()
 {
 
 }
 
-string user::GetNickname()
+string User::GetNickname()
 {
   return nickname;
 }
 
-void user::SetNickname(string n)
+void User::SetNickname(string n)
 {
   nickname = n;
 }
 
-void user::SetPassword(string p)
+void User::SetPassword(string p)
 {
   password = p;
 }
 
-string user::GetPassword()
+string User::GetPassword()
 {
   return password;
 }
 
-int user::GetStatus()
+int User::GetStatus()
 {
   return status;
 }
 
-void user::SetStatus(int s)
+void User::SetStatus(int s)
 {
   status = s;
 }
