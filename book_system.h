@@ -16,6 +16,8 @@ protected:
 public:
   bool NewBook(string Name, int q, string Loc, unsigned int p);
   bool NewUser(string Name, string pass, unsigned int s);
+  bool DeleteBook(unsigned int ID);
+  bool DeleteUser(unsigned int ID, unsigned int selfID);
   vector<Book*> GetAllBooks();
   vector<User*> GetAllUsers();
   vector<LocList> ListOfBuyerBooksLocations(unsigned int BuyerID);

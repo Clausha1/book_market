@@ -28,6 +28,14 @@ int main()
   {
     cout << "Created";
   }
+   if(S->DeleteBook(2))
+    {
+      cout<<"Deleted";
+    }
+    if(S->NewBook("EFGHRTY", 23, "A2", 5))
+    {
+      cout << "Created";
+    }
   vector<Book*> b = S->GetAllBooks();
   for (unsigned int i=0; i<b.size(); i++)
   {

@@ -127,6 +127,17 @@ bool BookSystem::NewUser(string Name, string pass, unsigned int s)
   return 1;
 }
 
+bool BookSystem::DeleteBook(unsigned int ID)
+{
+  for (vector<Book*>::iterator it=books.begin(); it!=books.end(); it++)
+    if ((*it)->GetBookID()==ID)
+      {
+        books.erase(it);
+        return 1;
+      }
+  return 0;
+}
+
 vector<Book*> BookSystem::GetAllBooks(){
   return books;
 }
