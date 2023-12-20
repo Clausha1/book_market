@@ -28,7 +28,7 @@ int main()
   {
     cout << "Created";
   }
-   if(S->DeleteBook(2))
+   if(S->DeleteBook(3))
     {
       cout<<"Deleted";
     }
@@ -58,6 +58,14 @@ int main()
     cout << "Created";
   }\
   if(S->NewUser("AC", "F1", 4))
+  {
+    cout << "Created";
+  }
+  if(S->DeleteUser(2, 3))
+   {
+     cout<<"Deleted";
+   }
+  if(S->NewUser("ТОRT","A2", 1))
   {
     cout << "Created";
   }
