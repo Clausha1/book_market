@@ -130,7 +130,7 @@ bool BookSystem::NewUser(string Name, string pass, unsigned int s)
 bool BookSystem::DeleteBook(unsigned int ID)
 {
   for (vector<Book*>::iterator it=books.begin(); it!=books.end(); it++)
-    if ((*it)->GetBookID()==ID)
+    if (((*it)->GetBookID()==ID) && ((*it)->GetOrderedQuantity()==0))
       {
         books.erase(it);
         return 1;

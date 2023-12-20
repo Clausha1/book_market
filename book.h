@@ -8,6 +8,7 @@ class Book
 private:
   unsigned int bookID;
   string bookname;
+  unsigned int orderedquantity=0;
   unsigned int quantity;
   string location;
   unsigned int price;
@@ -23,6 +24,8 @@ public:
   void SetLocation(string Loc);
   bool SetBuyerID(unsigned int ID);
   unsigned int GetBookID();
+  void SetOrderedQuantity(unsigned int q);
+  unsigned int GetOrderedQuantity();
   void SetQuantity(unsigned int q);
   unsigned int GetQuantity();
   string GetLocation();

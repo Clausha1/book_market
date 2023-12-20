@@ -60,3 +60,13 @@ unsigned int Book::GetBookPrice()
 {
   return price;
 }
+
+void Book::SetOrderedQuantity(unsigned int q)
+{
+   orderedquantity=q;
+}
+
+unsigned int Book::GetOrderedQuantity()
+{
+  return orderedquantity;
+}
