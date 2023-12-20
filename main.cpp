@@ -20,7 +20,7 @@ int main()
   {
     cout << "Created";
   }
-  if(S->NewBook("TORT", 12, "A2", 3))
+  if(S->NewBook("TORT", 12, "A2", 5))
   {
     cout << "Created";
   }\
@@ -28,11 +28,34 @@ int main()
   {
     cout << "Created";
   }
-  User* u = new User;
-  u->SetNickname("VOV");
-  cout << u->GetNickname();
-  u->SetPassword("DOD");
-  cout << u->GetPassword();
-  u->SetStatus(1);
-  cout << u->GetStatus();
+  vector<Book*> b = S->GetAllBooks();
+  for (unsigned int i=0; i<b.size(); i++)
+  {
+  cout << b[i]->GetBookID();
+  }
+  if(S->NewUser("ABCD", "ABCD", 1))
+    {
+      cout << "Created";
+    }
+  if(S->NewUser("ABCD", "F7", 1))
+    {
+      cout << "Created";
+    }
+  if(S->NewUser("ТОRT","A2", 1))
+  {
+    cout << "Created";
+  }
+  if(S->NewUser("TORT", "A2", 2))
+  {
+    cout << "Created";
+  }\
+  if(S->NewUser("AC", "F1", 4))
+  {
+    cout << "Created";
+  }
+  vector<User*> u = S->GetAllUsers();
+  for (unsigned int i=0; i<u.size(); i++)
+  {
+  cout << u[i]->GetUserID();
+  }
 }

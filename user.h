@@ -6,17 +6,19 @@ using namespace std;
 class User
 {
 private:
+  unsigned int userID;
   string nickname;
   string password;
-  int status;
+  unsigned int status;
 public:
-  User();
+  User(unsigned int ID);
+  unsigned int GetUserID();
   void SetNickname(string n);
   string GetNickname();
   void SetPassword(string p);
   string GetPassword();
-  void SetStatus(int s);
-  int GetStatus();
+  void SetStatus(unsigned int s);
+  unsigned int GetStatus();
 };
 
 #endif // USER_H

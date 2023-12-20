@@ -74,15 +74,66 @@ bool BookSystem::NewBook(string Name, int q, string Loc, unsigned int p){
         }
     }
   books.push_back(new Book(max+1));
-  books[max]->SetBookName(Name);
-  books[max]->SetQuantity(q);
-  books[max]->SetLocation(Loc);
-  books[max]->SetBookPrice(p);
+  books[books.size()-1]->SetBookName(Name);
+  books[books.size()-1]->SetQuantity(q);
+  books[books.size()-1]->SetLocation(Loc);
+  books[books.size()-1]->SetBookPrice(p);
   return 1;
  }
 
+bool BookSystem::NewUser(string Name, string pass, unsigned int s)
+{
+  unsigned int max = users.size();
+  for (unsigned int i=0; i<users.size();i++)
+    {
+      if ((users[i]->GetNickname() == Name) && (users[i]->GetStatus()==s))
+        {
+          return 0;
+        }
+    }
+  unsigned int max_id = 0;
+  for (unsigned int i=0; i<users.size();i++)
+    {
+      if (users[i]->GetUserID() > max_id)
+        {
+          max_id = users[i]->GetUserID();
+        }
+    }
+  bool isnotinitializedid =0;
+  for (unsigned int i =1; i<max_id;i++)
+    {
+      for (unsigned int j=0; j<users.size(); j++)
+        {
+          if(users[j]->GetUserID() == i)
+            {
+              isnotinitializedid =0;
+              break;
+            }
+          else
+          {
+              isnotinitializedid =1;
+            }
+        }
+      if (isnotinitializedid)
+        {
+          max = i-1;
+          break;
+        }
+    }
+  users.push_back(new User(max+1));
+  users[users.size()-1]->SetNickname(Name);
+  users[users.size()-1]->SetPassword(pass);
+  users[users.size()-1]->SetStatus(s);
+  return 1;
+}
+
 vector<Book*> BookSystem::GetAllBooks(){
   return books;
+}
+
+vector<User*> BookSystem::GetAllUsers()
+{
+  return users;
 }
 
 vector<Book*> BookSystem::Find(string Name)

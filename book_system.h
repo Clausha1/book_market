@@ -1,7 +1,5 @@
 #ifndef _BOOK_SYSTEM_H_
 #define _BOOK_SYSTEM_H_
-#include<vector>
-#include<string>
 #include "book.h"
 #include "user.h"
 using namespace std;
@@ -17,7 +15,9 @@ protected:
   vector<User*> users;
 public:
   bool NewBook(string Name, int q, string Loc, unsigned int p);
+  bool NewUser(string Name, string pass, unsigned int s);
   vector<Book*> GetAllBooks();
+  vector<User*> GetAllUsers();
   vector<LocList> ListOfBuyerBooksLocations(unsigned int BuyerID);
   vector<LocList> ListOfBooksLocations(vector<unsigned int> MarkedBooksList);
   vector<Book*> Sort(int par, bool s);

@@ -1,8 +1,13 @@
 #include "user.h"
 
-User::User()
+User::User(unsigned int ID)
 {
+  userID = ID;
+}
 
+unsigned int User::GetUserID()
+{
+  return userID;
 }
 
 string User::GetNickname()
@@ -25,12 +30,12 @@ string User::GetPassword()
   return password;
 }
 
-int User::GetStatus()
+unsigned int User::GetStatus()
 {
   return status;
 }
 
-void User::SetStatus(int s)
+void User::SetStatus(unsigned int s)
 {
   status = s;
 }
