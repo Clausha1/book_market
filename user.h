@@ -10,7 +10,7 @@ private:
   string password;
   int status;
 public:
-  user();
+  User();
   void SetNickname(string n);
   string GetNickname();
   void SetPassword(string p);

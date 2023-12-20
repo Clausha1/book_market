@@ -2,9 +2,8 @@
 #define _USERINTERFACE_H_
 #include <vector>
 #include <iostream>
-using namespace std;
-#include "book.h"
 #include "book_system.h"
+using namespace std;
 
 class UserInterface
 {

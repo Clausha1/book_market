@@ -1,7 +1,4 @@
-#include "book.h"
 #include "book_system.h"
-#include <string>
-#include <string.h>
 #include <algorithm>
 string str_tolower(string str)
 {

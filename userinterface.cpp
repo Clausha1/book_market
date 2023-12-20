@@ -1,6 +1,4 @@
 #include "userinterface.h"
-#include "book_system.h"
-#include "customerinterface.h"
 #include <iomanip>
 
 void UserInterface::ShowBook(vector<Book*> Books)

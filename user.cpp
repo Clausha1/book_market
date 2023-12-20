@@ -1,6 +1,6 @@
 #include "user.h"
 
-User::user()
+User::User()
 {
 
 }

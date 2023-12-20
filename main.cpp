@@ -1,8 +1,10 @@
 #include <iostream>
-#include "book.h"
-#include "book_system.h"
+#include "user.h"
+#include "book.h"\
 #include "userinterface.h"
 #include "customerinterface.h"
+#include "user.h"
+#include "book_system.h"
 int main()
 {
     BookSystem *S = new BookSystem;
@@ -26,15 +28,11 @@ int main()
   {
     cout << "Created";
   }
-  int c;
-  cout << "Customer (1) or Employee (2): ";
-  cin >> c;
-  cout << endl;
-  if(c == 1)
-  {
-      UserInterface *U= new CustomerInterface;
-      U->setsysref(S);
-      U->Menu();
-  }
-    return 0;
+  User* u = new User;
+  u->SetNickname("VOV");
+  cout << u->GetNickname();
+  u->SetPassword("DOD");
+  cout << u->GetPassword();
+  u->SetStatus(1);
+  cout << u->GetStatus();
 }
