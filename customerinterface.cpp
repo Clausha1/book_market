@@ -24,6 +24,7 @@ cout << "3) Sort Books" << endl;
 cout << "4) Add to cart"<< endl;
 cout << "5) Show cart"<< endl;
 cout << "6) Clear Cart" << endl;
+cout << "7) Provide Order" << endl;
 cout << endl;
 cout << "Select action: ";
 int x;
@@ -52,15 +53,24 @@ else {
 cout<<"Book with that ID doesn't exist";
 }
 system("pause");
+system("cls");
 Menu();
 case 5:
 ShowCart();
 system("pause");
+system("cls");
 Menu();
 case 6:
 ClearCart();
 system("pause");
+system("cls");
 Menu();
+  case 7:
+    ProvideOrder();
+    ClearCart();
+    system("pause");
+    system("cls");
+    Menu();
 }
 }
 
