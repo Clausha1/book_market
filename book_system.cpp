@@ -203,3 +203,31 @@ vector<Book*> BookSystem::Sort(int par, bool s){ // s: 1 - по возраста
     }
   return sortBooks;
 }
+
+
+unsigned int BookSystem::EditBook(unsigned int ID, string Name, int q, string Loc, unsigned int p)
+{
+  Book* bookref;
+  bool isexist=0;
+  for (vector<Book*>::iterator it=books.begin(); it<books.end(); i++)
+    {
+      if ((*it)->GetBookID()==ID)
+        {
+          bookref = *it;
+          isexist =1;
+        }
+    }
+  if (!isexist)
+    {
+      return 0;
+    }
+  if (q<bookref->GetOrderedQuantity())
+    {
+     return 1;
+    }
+  bookref->SetBookName(Name);
+  bookref->SetQuantity(q);
+  bookref->SetLocation(Loc);
+  bookref->SetBookPrice(p);
+  return 2;
+}

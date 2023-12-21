@@ -22,7 +22,6 @@ public:
   vector<Book*> GetAllBooks();
   vector<User*> GetAllUsers();
   vector<LocList> ListOfBuyerBooksLocations(unsigned int BuyerID);
-  vector<LocList> ListOfBooksLocations(vector<unsigned int> MarkedBooksList);
   vector<Book*> Sort(int par, bool s);
   vector<Book*> Find(string Name);
 };
