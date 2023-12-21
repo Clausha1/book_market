@@ -205,11 +205,11 @@ vector<Book*> BookSystem::Sort(int par, bool s){ // s: 1 - по возраста
 }
 
 
-unsigned int BookSystem::EditBook(unsigned int ID, string Name, int q, string Loc, unsigned int p)
+unsigned int BookSystem::EditBook(unsigned int ID, string Name, unsigned int q, string Loc, unsigned int p)
 {
   Book* bookref;
   bool isexist=0;
-  for (vector<Book*>::iterator it=books.begin(); it<books.end(); i++)
+  for (vector<Book*>::iterator it=books.begin(); it<books.end(); it++)
     {
       if ((*it)->GetBookID()==ID)
         {
