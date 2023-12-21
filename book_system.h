@@ -18,11 +18,10 @@ public:
   bool NewUser(string Name, string pass, unsigned int s);
   bool DeleteBook(unsigned int ID);
   bool DeleteUser(unsigned int ID, unsigned int selfID);
-  bool EditBook(string Name, int q, string Loc, unsigned int p);
+  unsigned int EditBook(unsigned int ID, string Name, unsigned int q, string Loc, unsigned int p);
   vector<Book*> GetAllBooks();
   vector<User*> GetAllUsers();
   vector<LocList> ListOfBuyerBooksLocations(unsigned int BuyerID);
-  vector<LocList> ListOfBooksLocations(vector<unsigned int> MarkedBooksList);
   vector<Book*> Sort(int par, bool s);
   vector<Book*> Find(string Name);
 };
