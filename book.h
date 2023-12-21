@@ -8,7 +8,7 @@ class Book
 private:
   unsigned int bookID;
   string bookname;
-  unsigned int orderedquantity=0;
+  unsigned int orderedquantity;
   unsigned int quantity;
   string location;
   unsigned int price;
@@ -16,6 +16,7 @@ private:
 public:
   Book(unsigned int ID)
   {
+   orderedquantity =0;
    bookID=ID;
   }
   void SetBookName(string Name);

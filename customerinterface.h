@@ -7,9 +7,11 @@ class CustomerInterface : public UserInterface
 protected:
   vector<unsigned int> cart;
 
+
 public:
-    void Menu();
     void ShowCart();
+    void Menu();
+    void ClearCart();
     bool AddToCart(unsigned int order);
     vector<unsigned int> ProvideOrder();
 };
