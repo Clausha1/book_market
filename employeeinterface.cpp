@@ -98,7 +98,8 @@ void EmployeeInterface::EditBook()
         cout << "Book edited" << endl;
     break;
     }
-    system("cls");
+
     system("pause");
+    system("cls");
     Menu();
 }
