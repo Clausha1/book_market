@@ -56,6 +56,12 @@ case 4:
     Menu();
 }
 }
+
+void CustomerInterface::SetSelfStatus(unsigned int s)
+{
+    selfstatus = s;
+}
+
 bool CustomerInterface::AddToCart(unsigned int order){
   vector<Book*> bookc = sysref->GetAllBooks();
   bool isexist=0;

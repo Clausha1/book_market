@@ -6,9 +6,14 @@ class EmployeeInterface : public UserInterface
 {
 protected:
 
+private:
+
+
 public:
     void Menu();
-    void EditBook(unsigned int edit);
+    void EditBook();
+    void ShowAllUsers();
+    void SetSelfStatus(unsigned int s);
 };
 
 #endif // EMPLOYEE

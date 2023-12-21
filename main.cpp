@@ -9,6 +9,7 @@
 int main()
 {
     BookSystem *S = new BookSystem;
+    S->NewUser("ad","ad", 3);
 
     if(S->NewBook("ABCD", 10, "F7", 1))
       {
@@ -45,6 +46,7 @@ int main()
     vector<Book*> b = S->GetAllBooks();
 
     S->NewUser("cus", "pass", 1);
+    S->NewUser("cus2", "pass", 1);
     S->NewUser("emp", "pass", 2);
 
     unsigned int c;
@@ -117,6 +119,7 @@ int main()
         if (isexist)
         {
             UserInterface *U= new EmployeeInterface;
+            U->SetSelfStatus(c);
             U->setsysref(S);
             U->Menu();
         }
