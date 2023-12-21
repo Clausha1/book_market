@@ -8,6 +8,7 @@ class UserInterface
 {
 protected:
     BookSystem* sysref;
+    unsigned int selfstatus;
 
 public:
     void setsysref(BookSystem* ref);
@@ -19,6 +20,7 @@ public:
     void Sort();
 
     virtual void Menu()=0;
+    virtual void SetSelfStatus(unsigned int s)=0;
 };
 
 #endif // USER_H
