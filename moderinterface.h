@@ -1,8 +1,8 @@
-#ifndef _EMPLOYEEINTERFACE_H_
-#define _EMPLOYEEINTERFACE_H_
+#ifndef MODERINTERFACE
+#define MODERINTERFACE
 #include "userinterface.h"
 #include <vector>
-class EmployeeInterface : public UserInterface
+class ModerInterface : public UserInterface
 {
 protected:
 
@@ -15,8 +15,9 @@ public:
     void ShowAllUsers();
     void DeleteBook();
     void NewBook();
+    void DeleteUser();
     void SetSelfStatus(unsigned int s);
 };
 
-#endif // EMPLOYEE
+#endif // MODERINTERFACE
 

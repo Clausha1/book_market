@@ -10,7 +10,8 @@ SOURCES += main.cpp \
     userinterface.cpp \
     employeeinterface.cpp \
     customerinterface.cpp \
-    user.cpp
+    user.cpp \
+    moderinterface.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
@@ -22,5 +23,6 @@ HEADERS += \
     userinterface.h \
     customerinterface.h \
     employeeinterface.h \
-    user.h
+    user.h \
+    moderinterface.h
 
