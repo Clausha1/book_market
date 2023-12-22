@@ -250,11 +250,10 @@ bool BookSystem::Receipt(unsigned int ID, unsigned int q, unsigned int p)
       return 0;
     }
   bookref->SetQuantity(bookref->GetQuantity()+q);
-  Book* b{bookref};
-  b->SetBookPrice(p);
-  b->SetQuantity(q);
+  Book b = *bookref;
+  b.SetBookPrice(p);
+  b.SetQuantity(q);
   invoice->SetIncome(b);
-  delete b;
   return 1;
 }
 

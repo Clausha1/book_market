@@ -6,12 +6,12 @@ using namespace std;
 class Invoice
 {
 private:
-    vector<Book*> income;
-    vector<Book*> outcome;
+    vector<Book> income;
+    vector<Book> outcome;
 public:
-    void SetIncome(Book* b);
+    void SetIncome(Book b);
     bool IsIncomeEmpty();
-    void SetOutcome(Book* b);
+    void SetOutcome(Book b);
     bool IsOutcomeEmpty();
 };
 

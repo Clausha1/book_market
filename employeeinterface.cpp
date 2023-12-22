@@ -11,6 +11,7 @@ cout << "4) Edit Book"<<endl;
 cout << "5) Show all Users"<<endl;
 cout << "6) Delete Book"<<endl;
 cout << "7) Add Book"<<endl;
+cout << "8) Receipt of product"<<endl;
 cout << endl;
 cout << "Select action: ";
 int x;
@@ -40,7 +41,9 @@ break;
 case 7:
     NewBook();
 break;
-
+case 8:
+    Receipt();
+break;
 }
 }
 
@@ -73,6 +76,28 @@ void EmployeeInterface::ShowAllUsers()
     Menu();
 }
 
+void EmployeeInterface::Receipt()
+{
+    unsigned int ID;
+    unsigned int q;
+    unsigned int p;
+    ShowBook(sysref->GetAllBooks());
+    cout << endl;
+    cout << "Enter book ID: ";
+    cin >> ID;
+    cout << "Enter book Quantity: ";
+    cin >> q;
+    cout << "Enter book Price: ";
+    cin >> p;
+    if(sysref->Receipt(ID, q, p))
+    {
+        cout << "Successfully Conducted" << endl;
+    }
+    system("pause");
+    system("cls");
+    Menu();
+}
+
 void EmployeeInterface::NewBook()
 {
     string Name;
@@ -93,15 +118,11 @@ void EmployeeInterface::NewBook()
     switch (add)
     {
     case 0:
-        cout << "Book with that ID is not exist" << endl;
+        cout << "This book is Exist" << endl;
     break;
 
     case 1:
-        cout << "Book quantity can't be more than ordered book quantity" << endl;
-    break;
-
-    case 2:
-        cout << "Book edited" << endl;
+        cout << "Book Created" << endl;
     break;
     }
     system("pause");

@@ -15,6 +15,7 @@ public:
     void ShowAllUsers();
     void DeleteBook();
     void NewBook();
+    void Receipt();
     void SetSelfStatus(unsigned int s);
 };
 

@@ -10,6 +10,7 @@
 int main()
 {
     BookSystem *S = new BookSystem;
+    S->NewInvoice();
     S->NewUser("mod","mod", 3);
 
     if(S->NewBook("ABCD", 10, "F7", 1))
