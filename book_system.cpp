@@ -231,3 +231,34 @@ unsigned int BookSystem::EditBook(unsigned int ID, string Name, unsigned int q, 
   bookref->SetBookPrice(p);
   return 2;
 }
+
+
+bool BookSystem::Receipt(unsigned int ID, unsigned int q, unsigned int p)
+{
+  Book* bookref;
+  bool isexist=0;
+  for (vector<Book*>::iterator it=books.begin(); it<books.end(); it++)
+    {
+      if ((*it)->GetBookID()==ID)
+        {
+          bookref = *it;
+          isexist =1;
+        }
+    }
+  if (!isexist)
+    {
+      return 0;
+    }
+  bookref->SetQuantity(bookref->GetQuantity()+q);
+  Book* b{bookref};
+  b->SetBookPrice(p);
+  b->SetQuantity(q);
+  invoice->SetIncome(b);
+  delete b;
+  return 1;
+}
+
+void BookSystem::NewInvoice()
+{
+  invoice = new Invoice;
+}
