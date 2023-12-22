@@ -1,8 +1,8 @@
-#include "employeeinterface.h"
+#include "moderinterface.h"
 #include "book_system.h"
 #include <iomanip>
 
-void EmployeeInterface::Menu()
+void ModerInterface::Menu()
 {
 cout << "1) Show All Books" << endl;
 cout << "2) Search Book" << endl;
@@ -11,6 +11,7 @@ cout << "4) Edit Book"<<endl;
 cout << "5) Show all Users"<<endl;
 cout << "6) Delete Book"<<endl;
 cout << "7) Add Book"<<endl;
+cout << "8) Delete User" << endl;
 cout << endl;
 cout << "Select action: ";
 int x;
@@ -40,16 +41,19 @@ break;
 case 7:
     NewBook();
 break;
-
+case 8:
+    ShowAllUsers();
+    DeleteUser();
+break;
 }
 }
 
-void EmployeeInterface::SetSelfStatus(unsigned int s)
+void ModerInterface::SetSelfStatus(unsigned int s)
 {
     selfstatus = s;
 }
 
-void EmployeeInterface::ShowAllUsers()
+void ModerInterface::ShowAllUsers()
 {
     cout << setfill(' ') << left << setw(20) << "User ID"  << "|";
     cout << setfill(' ') << left << setw(20) << "User Name" << "|";
@@ -73,7 +77,7 @@ void EmployeeInterface::ShowAllUsers()
     Menu();
 }
 
-void EmployeeInterface::NewBook()
+void ModerInterface::NewBook()
 {
     string Name;
     int q;
@@ -93,15 +97,11 @@ void EmployeeInterface::NewBook()
     switch (add)
     {
     case 0:
-        cout << "Book with that ID is not exist" << endl;
+        cout << "This book is Exist" << endl;
     break;
 
     case 1:
-        cout << "Book quantity can't be more than ordered book quantity" << endl;
-    break;
-
-    case 2:
-        cout << "Book edited" << endl;
+        cout << "Book Created" << endl;
     break;
     }
     system("pause");
@@ -109,14 +109,38 @@ void EmployeeInterface::NewBook()
     Menu();
 }
 
-void EmployeeInterface::DeleteBook()
+void ModerInterface::DeleteBook()
 {
     unsigned int ID;
     ShowBook(sysref->GetAllBooks());
     cout << endl;
-    cout << "Select User ID: ";
+    cout << "Select Book ID: ";
     cin >> ID;
     bool del = sysref-> DeleteBook(ID);
+    switch (del)
+    {
+    case 0:
+        cout << "Book is not Exist" << endl;
+    break;
+
+    case 1:
+        cout << "Book Deleted" << endl;
+    break;
+    }
+
+    system("pause");
+    system("cls");
+    Menu();
+}
+
+void ModerInterface::DeleteUser()
+{
+    unsigned int ID;
+    unsigned int selfID = 999;
+    cout << endl;
+    cout << "Select User ID: ";
+    cin >> ID;
+    bool del = sysref-> DeleteUser(ID, selfID);
     switch (del)
     {
     case 0:
@@ -133,7 +157,7 @@ void EmployeeInterface::DeleteBook()
     Menu();
 }
 
-void EmployeeInterface::EditBook()
+void ModerInterface::EditBook()
 {
     unsigned int ID;
     string Name;
@@ -172,3 +196,4 @@ void EmployeeInterface::EditBook()
     system("cls");
     Menu();
 }
+
