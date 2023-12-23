@@ -44,10 +44,7 @@ break;
 }
 }
 
-void EmployeeInterface::SetSelfStatus(unsigned int s)
-{
-    selfstatus = s;
-}
+
 
 void EmployeeInterface::ShowAllUsers()
 {

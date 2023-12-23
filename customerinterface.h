@@ -12,8 +12,7 @@ public:
     void ClearCart();
     bool CancelOrder(unsigned int ID);
     bool AddToCart(unsigned int order);
-    vector<unsigned int> ProvideOrder();
-    void SetSelfStatus(unsigned int s);
+    void PlaceOrder();
 };
 
 #endif // CUSTOMER
