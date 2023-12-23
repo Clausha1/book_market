@@ -69,3 +69,11 @@ void UserInterface::Sort()
     system("cls");
     Menu();
 }
+void UserInterface::SetSelfStatus(unsigned int s)
+{
+    selfstatus = s;
+}
+void UserInterface::SetSelfID(unsigned int ID)
+{
+    selfstatus = ID;
+}

@@ -78,7 +78,7 @@ system("pause");
 system("cls");
 Menu();
   case 8:
-    ProvideOrder();
+    PlaceOrder();
     ClearCart();
     system("pause");
     system("cls");
@@ -103,12 +103,19 @@ bool CustomerInterface::CancelOrder(unsigned int ID){
   cart.erase(a);
   return 1;
 }
-
-
-void CustomerInterface::SetSelfStatus(unsigned int s)
+void CustomerInterface::PlaceOrder()
 {
-    selfstatus = s;
+bool success =sysref->PushToOrders(selfID, cart);
+if (success)
+{
+cout << "Order placed successfully!" << endl;
 }
+else
+{
+cout << "Failed to place order. Please check your cart." << endl;
+}
+}
+
 
 bool CustomerInterface::AddToCart(unsigned int order){
 vector<Book*> bookc = sysref->GetAllBooks();
@@ -127,9 +134,8 @@ return 0;
 }
 }
 
-vector<unsigned int> CustomerInterface::ProvideOrder(){
-return cart;
-}
+
+
 
 void CustomerInterface::ClearCart() {
 cart.clear();
