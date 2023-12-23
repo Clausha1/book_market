@@ -33,7 +33,10 @@ public:
   vector<Book*> GetAllBooks();
   vector<User*> GetAllUsers();
   bool PushToOrders(unsigned int ID, vector<unsigned int> cart);
+  bool CancelOrder(unsigned int userID, unsigned int ID);
   bool ProvideOrder(unsigned int ID);
+  vector<Order*> GetAllOrders();
+  vector<Order*> GetAllOrders(unsigned int ID);
   vector<Book*> Sort(int par, bool s);
   vector<Book*> Find(string Name);
   bool Receipt(unsigned int ID, unsigned int q, unsigned int p);

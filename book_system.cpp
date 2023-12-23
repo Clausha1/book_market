@@ -334,3 +334,46 @@ bool BookSystem::ProvideOrder(unsigned int ID)
 
     }
 }
+
+
+vector<Order*> BookSystem::GetAllOrders()
+{
+  return orders;
+}
+
+vector<Order*> BookSystem::GetAllOrders(unsigned int ID)
+{
+  vector<Order*> order;
+  for (vector<Order*>::iterator it=orders.begin(); it!=orders.end(); it++)
+    {
+        if ((*it)->userID==ID)
+          {
+            order.push_back(*it);
+          }
+    }
+  return order;
+}
+
+
+bool BookSystem::CancelOrder(unsigned int userID, unsigned int ID)
+{
+   for (vector<Order*>::iterator it=orders.begin(); it!=orders.end(); it++)
+     {
+        if (((*it)->userID==userID) && ((*it)->orderID==ID) && (!(*it)->status))
+          {
+            for (vector<unsigned int>::iterator it2=(*it)->cart.begin(); it2!=(*it)->cart.end(); it2++)
+              {
+                for (vector<Book*>::iterator it3=books.begin(); it3<books.end(); it3++)
+                    {
+                    if ((*it2)==(*it3)->GetBookID())
+                      {
+                        (*it3)->SetOrderedQuantity((*it3)->GetOrderedQuantity()-1);
+                      }
+                  }
+              }
+            orders.erase(it);
+            return 1;
+          }
+     }
+   return 0;
+}
