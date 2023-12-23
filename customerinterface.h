@@ -13,6 +13,7 @@ public:
     bool CancelOrder(unsigned int ID);
     bool AddToCart(unsigned int order);
     void PlaceOrder();
+    void ViewOrders();
 };
 
 #endif // CUSTOMER

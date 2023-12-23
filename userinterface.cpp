@@ -6,7 +6,7 @@ void UserInterface::ShowBook(vector<Book*> Books)
 {
     cout << setfill(' ') << left << setw(20) << "Book ID"  << "|";
     cout << setfill(' ') << left << setw(20) << "Book Name"  << "|";
-    cout << setfill(' ') << left << setw(20) << "Book Quantity" << "|";
+    cout << setfill(' ') << left << setw(28) << "Book Quantity (Ordered/All)" << "|";
     cout << setfill(' ') << left << setw(20) << "Book Location" << "|";
     cout << setfill(' ') << left << setw(20) << "Book Price" << "\t";
     cout << endl;
@@ -17,7 +17,8 @@ void UserInterface::ShowBook(vector<Book*> Books)
       {
         cout << setfill(' ') << left << setw(20) << Books[i]->GetBookID()  << "|";
         cout << setfill(' ') << left << setw(20) << Books[i]->GetBookName()  << "|";
-        cout << setfill(' ') << left << setw(20) << Books[i]->GetQuantity() << "|";
+
+        cout << setfill(' ') << right << setw(14) << Books[i]->GetOrderedQuantity()<< left << setw(1) <<"/" << left << setw(13)<< Books[i]->GetQuantity()<< "|";
         cout << setfill(' ') << left << setw(20) << Books[i]->GetLocation() << "|";
         cout << setfill(' ') << left << setw(20) << Books[i]->GetBookPrice() << "\n";
       }
