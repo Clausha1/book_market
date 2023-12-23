@@ -300,12 +300,12 @@ bool BookSystem::PushToOrders(unsigned int ID, vector<unsigned int> cart)
   orders[orders.size()-1]->cart = cart;
   for (vector<Book*>::iterator it = books.begin(); it!=books.end(); it++)
   {
-    for (vector<unsigned int>::iterator it2 = cart.begin(); it2!=cart.end();)
+    for (vector<unsigned int>::iterator it2 = cart.begin(); it2!=cart.end(); it2++)
     if ((*it)->GetBookID()==(*it2))
       {
         (*it)->SetOrderedQuantity((*it)->GetOrderedQuantity()+1);
         (*it)->SetBuyerID(ID);
-        cart.erase(it2);
+
       }
   }
   return 1;

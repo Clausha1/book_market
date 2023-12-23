@@ -22,13 +22,14 @@ cout << "5) Show cart"<< endl;
 cout << "6) Delete one item from cart" << endl;
 cout << "7) Clear Cart" << endl;
 cout << "8) Provide Order" << endl;
-
+cout << "9) ShowAllOrders" << endl;
 
 cout << endl;
 cout << "Select action: ";
 int x;
 cin >> x;
 cout << endl;
+
 
 switch(x) {
 case 1:
@@ -83,7 +84,19 @@ Menu();
     system("pause");
     system("cls");
     Menu();
+  case 9:
+    vector<Order*>v1=sysref->GetAllOrders(selfID);
+    ShowAllOrders(v1);
+    system("pause");
+    system("cls");
+    Menu();
 
+ /* case 10:
+    ViewOrders();
+    system("pause");
+    system("cls");
+    Menu();
+*/
 
 }
 }
@@ -141,3 +154,16 @@ void CustomerInterface::ClearCart() {
 cart.clear();
 cout << "Your cart has been cleared!" << endl;
 }
+/* void CustomerInterface::ViewOrders() {
+  vector<Order> orders = sysref->GetOrdersByCustomerID(selfID);
+  if (orders.empty()) {
+    cout << "You have no orders yet." << endl;
+  } else {
+    cout << "Your orders: " << endl;
+    for (const auto& order : orders) {
+      cout << "Order ID: " << order.GetOrderID() << " | Order Date: " << order.GetOrderDate() << " | Total Amount: " << order.GetTotalAmount() << endl;
+      // Можно добавить ещё информации о заказе, если это необходимо
+    }
+  }
+}
+*/
