@@ -19,8 +19,11 @@ cout << "2) Search Book" << endl;
 cout << "3) Sort Books" << endl;
 cout << "4) Add to cart"<< endl;
 cout << "5) Show cart"<< endl;
-cout << "6) Clear Cart" << endl;
-cout << "7) Provide Order" << endl;
+cout << "6) Delete one item from cart" << endl;
+cout << "7) Clear Cart" << endl;
+cout << "8) Provide Order" << endl;
+
+
 cout << endl;
 cout << "Select action: ";
 int x;
@@ -42,10 +45,10 @@ unsigned int order;
 cout<< "Write ID of a book you want to order: ";
 cin >> order;
 if (AddToCart(order)){
-cout<< "Book added";
+cout<< "Book added\n";
 }
 else {
-cout<<"Book with that ID doesn't exist";
+cout<<"Book with that ID doesn't exist\n";
 }
 system("pause");
 system("cls");
@@ -55,18 +58,50 @@ ShowCart();
 system("pause");
 system("cls");
 Menu();
-case 6:
+  case 6:
+    unsigned int orderId;
+    cout << "Enter ID of the order you want to cancel: ";
+    cin >> orderId;
+    cout << endl;
+    if (CancelOrder(orderId)){
+        cout<<"Order cancelled\n";
+      }
+    else {
+        cout<<"No such order\n";
+      }
+    system("pause");
+    system("cls");
+    Menu();
+case 7:
 ClearCart();
 system("pause");
 system("cls");
 Menu();
-  case 7:
+  case 8:
     ProvideOrder();
     ClearCart();
     system("pause");
     system("cls");
     Menu();
+
+
 }
+}
+bool CustomerInterface::CancelOrder(unsigned int ID){
+  bool isexist=0;
+  vector<unsigned int>::iterator a;
+  for (vector<unsigned int>::iterator it=cart.begin();it!= cart.end(); it++){
+      if ((*it)==ID){
+          isexist=1;
+          a=it;
+          break;
+        }
+    }
+  if (!isexist){
+      return 0;
+    }
+  cart.erase(a);
+  return 1;
 }
 
 
