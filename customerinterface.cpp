@@ -22,7 +22,7 @@ cout << "5) Show cart"<< endl;
 cout << "6) Delete one item from cart" << endl;
 cout << "7) Clear Cart" << endl;
 cout << "8) Provide Order" << endl;
-
+cout << "9) ShowAllOrders" << endl;
 
 cout << endl;
 cout << "Select action: ";
@@ -84,7 +84,14 @@ Menu();
     system("pause");
     system("cls");
     Menu();
- /* case 9:
+  case 9:
+    vector<Order*>v1=sysref->GetAllOrders(selfID);
+    ShowAllOrders(v1);
+    system("pause");
+    system("cls");
+    Menu();
+
+ /* case 10:
     ViewOrders();
     system("pause");
     system("cls");

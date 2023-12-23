@@ -23,6 +23,22 @@ void UserInterface::ShowBook(vector<Book*> Books)
         cout << setfill(' ') << left << setw(20) << Books[i]->GetBookPrice() << "\n";
       }
 }
+void UserInterface::ShowAllOrders(vector<Order*> orders){
+  for (vector<Order*>::iterator it= orders.begin();it!=orders.end();it++){
+      cout << "Order#" << (*it)->orderID <<endl;
+      vector<Book*> b=sysref->GetAllBooks();
+      vector <Book*> a;
+      for (vector<Book*>::iterator it2=b.begin(); it2!=b.end(); it2++){
+          for (vector<unsigned int>::iterator it3=(*it)->cart.begin();it3!=(*it)->cart.end();it3++){
+              if ((*it2)->GetBookID()==*it3){
+                  a.push_back(*it2);
+                }
+            }
+        }
+      ShowBook(a);
+      a.clear();
+    }
+}
 
 void UserInterface::setsysref(BookSystem* ref)
 {
@@ -70,6 +86,7 @@ void UserInterface::Sort()
     system("cls");
     Menu();
 }
+
 void UserInterface::SetSelfStatus(unsigned int s)
 {
     selfstatus = s;
