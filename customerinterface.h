@@ -13,8 +13,10 @@ public:
     void ShowCart();
     void Menu();
     void ClearCart();
+    bool CancelOrder(unsigned int ID);
     bool AddToCart(unsigned int order);
     vector<unsigned int> ProvideOrder();
+    vector<unsigned int> orderId();
 };
 
 #endif // CUSTOMER
