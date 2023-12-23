@@ -241,7 +241,7 @@ bool BookSystem::Receipt(unsigned int ID, unsigned int q, unsigned int p)
     {
       if ((*it)->GetBookID()==ID)
         {
-          bookref = *it;
+          bookref = (*it);
           isexist =1;
         }
     }
@@ -250,15 +250,87 @@ bool BookSystem::Receipt(unsigned int ID, unsigned int q, unsigned int p)
       return 0;
     }
   bookref->SetQuantity(bookref->GetQuantity()+q);
-  Book* b{bookref};
-  b->SetBookPrice(p);
-  b->SetQuantity(q);
+  Book b = *bookref;
+  b.SetBookPrice(p);
+  b.SetQuantity(q);
   invoice->SetIncome(b);
-  delete b;
   return 1;
 }
 
 void BookSystem::NewInvoice()
 {
   invoice = new Invoice;
+}
+
+bool BookSystem::PushToOrders(unsigned int ID, vector<unsigned int> cart)
+{
+  unsigned int max = orders.size();
+  unsigned int maxID =0;
+  if (!cart.size())
+    {
+      return 0;
+    }
+  for (vector<Order*>::iterator it=orders.begin(); it!=orders.end(); it++)
+    {
+      if (maxID<(*it)->orderID)
+        {
+            maxID = (*it)->orderID;
+        }
+    }
+  for (unsigned int i=0; i<maxID; i++)
+    {
+      bool isexist=0;
+      for (vector<Order*>::iterator it=orders.begin(); it!=orders.end(); it++)
+        {
+          if (i==(*it)->orderID)
+            {
+              isexist =1;
+              break;
+            }
+        }
+      if (!isexist)
+        {
+          max = i-1;
+          break;
+        }
+    }
+  orders.push_back(new Order(max+1));
+  orders[orders.size()-1]->status = 0;
+  orders[orders.size()-1]->userID = ID;
+  orders[orders.size()-1]->cart = cart;
+  for (vector<Book*>::iterator it = books.begin(); it!=books.end(); it++)
+  {
+    for (vector<unsigned int>::iterator it2 = cart.begin(); it2!=cart.end();)
+    if ((*it)->GetBookID()==(*it2))
+      {
+        (*it)->SetOrderedQuantity((*it)->GetOrderedQuantity()+1);
+        (*it)->SetBuyerID(ID);
+        cart.erase(it2);
+      }
+  }
+  return 1;
+}
+
+
+bool BookSystem::ProvideOrder(unsigned int ID)
+{
+  bool isexist =0;
+  Order* order;
+  for (vector<Order*>::iterator it=orders.begin(); it!=orders.end();it++)
+    {
+      if (((*it)->orderID == ID) && (!(*it)->status))
+        {
+          isexist = 1;
+          order = *it;
+          break;
+        }
+    }
+  if (!isexist)
+    {
+      return 0;
+    }
+  for (vector<Book*>::iterator it=books.begin(); it!=books.end(); it++)
+    {
+
+    }
 }

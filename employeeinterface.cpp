@@ -97,11 +97,7 @@ void EmployeeInterface::NewBook()
     break;
 
     case 1:
-        cout << "Book quantity can't be more than ordered book quantity" << endl;
-    break;
-
-    case 2:
-        cout << "Book edited" << endl;
+        cout << "Book created" << endl;
     break;
     }
     system("pause");

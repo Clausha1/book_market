@@ -23,7 +23,7 @@ public:
   void SetBookPrice(unsigned int p);
   unsigned int GetBookPrice();
   void SetLocation(string Loc);
-  bool SetBuyerID(unsigned int ID);
+  void SetBuyerID(unsigned int ID);
   unsigned int GetBookID();
   void SetOrderedQuantity(unsigned int q);
   unsigned int GetOrderedQuantity();
