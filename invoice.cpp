@@ -12,12 +12,12 @@ void Invoice::SetOutcome(Book b)
 
 bool Invoice::IsIncomeEmpty()
 {
-  return income.empty();
+  return !income.empty();
 }
 
 bool Invoice::IsOutcomeEmpty()
 {
-  return outcome.empty();
+  return !outcome.empty();
 }
 
 vector<Book> Invoice::GetIncome()
@@ -28,4 +28,17 @@ vector<Book> Invoice::GetIncome()
 vector<Book> Invoice::GetOutcome()
 {
   return outcome;
+}
+
+Invoice::~Invoice()
+{
+    for (vector<Book>::iterator it=income.begin(); it!=income.end(); it++)
+    {
+        delete &(*it);
+    }
+
+    for (vector<Book>::iterator it=outcome.begin(); it!=outcome.end(); it++)
+    {
+        delete &(*it);
+    }
 }

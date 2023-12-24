@@ -106,7 +106,9 @@ Menu();
     break;
   case 9:
     system("cls");
+    cout << "Conducted" << endl;
     ShowAllOrders(v1, 1);
+    cout << "Not Conducted" << endl;
     ShowAllOrders(v1, 0);
     system("pause");
     system("cls");
@@ -115,7 +117,9 @@ Menu();
 
   case 10:
     system("cls");
+    cout << "Conducted" << endl;
     ShowAllOrders(v1, 1);
+    cout << "Not Conducted" << endl;
     ShowAllOrders(v1, 0);
     cout<< "Enter order ID: ";
     cin>> orderID;

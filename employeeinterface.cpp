@@ -66,13 +66,17 @@ case 9:
 break;
 case 10:
     system("cls");
+    cout << "Conducted" << endl;
     ShowAllOrders(v1, 1);
+    cout << "Not Conducted" << endl;
     ShowAllOrders(v1, 0);
     Accept();
 break;
 case 11:
     system("cls");
+    cout << "Conducted" << endl;
     ShowAllOrders(v1, 1);
+    cout << "Not Conducted" << endl;
     ShowAllOrders(v1, 0);
     Provide();
 break;
@@ -143,6 +147,17 @@ void EmployeeInterface::Provide()
 
 void EmployeeInterface::Invoice()
 {
+    if(sysref->InvoiceToFile())
+    {
+        cout << "Invoice created" << endl;
+    }
+    else
+    {
+        cout << "Income and Outcome is empty" << endl;
+    }
+    system("pause");
+    system("cls");
+    Menu();
 
 }
 
@@ -205,13 +220,13 @@ void EmployeeInterface::DeleteBook()
     unsigned int ID;
     ShowBook(sysref->GetAllBooks());
     cout << endl;
-    cout << "Select User ID: ";
+    cout << "Select book ID: ";
     cin >> ID;
     bool del = sysref-> DeleteBook(ID);
     switch (del)
     {
     case 0:
-        cout << "Book is not Exist" << endl;
+        cout << "Book is not Exist or ordered quantity is not null" << endl;
     break;
 
     case 1:

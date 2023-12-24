@@ -44,10 +44,10 @@ int main()
 
     vector<Book*> b = S->GetAllBooks();
 
-    S->NewUser("cus", "pass", 1);
-    S->NewUser("Customer 2", "pass", 1);
-    S->NewUser("Customer 3", "pass", 1);
-    S->NewUser("Customer 4", "pass", 1);
+    S->NewUser("cus1", "pass", 1);
+    S->NewUser("cus2", "pass", 1);
+    S->NewUser("cus3", "pass", 1);
+    S->NewUser("cus4", "pass", 1);
     S->NewUser("emp", "pass", 2);
 
     unsigned int c;
