@@ -138,17 +138,14 @@ bool BookSystem::DeleteBook(unsigned int ID)
   return 0;
 }
 
-bool BookSystem::DeleteUser(unsigned int ID, unsigned int selfID)
+bool BookSystem::DeleteUser(unsigned int ID, unsigned int selfstatus)
 {
-  if (selfID>ID)
-    {
       for (vector<User*>::iterator it=users.begin(); it!=users.end(); it++)
-        if ((*it)->GetUserID()==ID)
+        if (((*it)->GetUserID()==ID) && ((*it)->GetStatus()<selfstatus))
           {
             users.erase(it);
             return 1;
           }
-    }
   return 0;
 }
 
