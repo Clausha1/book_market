@@ -10,10 +10,11 @@ public:
     void ShowCart();
     void Menu();
     void ClearCart();
-    bool CancelOrder(unsigned int ID);
+    void CancelOrder(unsigned int ID);
     bool AddToCart(unsigned int order);
     void PlaceOrder();
     void ViewOrders();
+    bool CancelOneItem(unsigned int ID);
 };
 
 #endif // CUSTOMER

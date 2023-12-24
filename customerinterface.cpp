@@ -23,13 +23,15 @@ cout << "6) Delete one item from cart" << endl;
 cout << "7) Clear Cart" << endl;
 cout << "8) Provide Order" << endl;
 cout << "9) ShowAllOrders" << endl;
-
+cout << "10) Cancel Order" << endl;
 cout << endl;
 cout << "Select action: ";
 int x;
 cin >> x;
 cout << endl;
 
+vector<Order*> v1=sysref->GetAllOrders(selfID);
+unsigned int orderID;
 
 switch(x) {
 case 1:
@@ -54,53 +56,62 @@ cout<<"Book with that ID doesn't exist\n";
 system("pause");
 system("cls");
 Menu();
+    break;
 case 5:
 ShowCart();
 system("pause");
 system("cls");
 Menu();
+    break;
   case 6:
-    unsigned int orderId;
-    cout << "Enter ID of the order you want to cancel: ";
-    cin >> orderId;
-    cout << endl;
-    if (CancelOrder(orderId)){
-        cout<<"Order cancelled\n";
-      }
-    else {
-        cout<<"No such order\n";
-      }
-    system("pause");
-    system("cls");
-    Menu();
+        cout << "Enter ID of the order you want to cancel: ";
+        cin >> orderID;
+        cout << endl;
+        if (CancelOneItem(orderID)){
+            cout<<"Order cancelled\n";
+          }
+        else {
+            cout<<"No such order\n";
+          }
+        system("pause");
+        system("cls");
+        Menu();
+
+
 case 7:
 ClearCart();
 system("pause");
 system("cls");
 Menu();
+    break;
   case 8:
     PlaceOrder();
     ClearCart();
     system("pause");
     system("cls");
     Menu();
+    break;
   case 9:
-    vector<Order*>v1=sysref->GetAllOrders(selfID);
     ShowAllOrders(v1);
     system("pause");
     system("cls");
     Menu();
+    break;
 
- /* case 10:
-    ViewOrders();
+  case 10:
+    ShowAllOrders(v1);
+    cout<< "Enter order ID: ";
+    cin>> orderID;
+    CancelOrder(orderID);
     system("pause");
     system("cls");
     Menu();
-*/
+    break;
+
 
 }
 }
-bool CustomerInterface::CancelOrder(unsigned int ID){
+bool CustomerInterface::CancelOneItem(unsigned int ID){
   bool isexist=0;
   vector<unsigned int>::iterator a;
   for (vector<unsigned int>::iterator it=cart.begin();it!= cart.end(); it++){
@@ -154,16 +165,14 @@ void CustomerInterface::ClearCart() {
 cart.clear();
 cout << "Your cart has been cleared!" << endl;
 }
-/* void CustomerInterface::ViewOrders() {
-  vector<Order> orders = sysref->GetOrdersByCustomerID(selfID);
-  if (orders.empty()) {
-    cout << "You have no orders yet." << endl;
-  } else {
-    cout << "Your orders: " << endl;
-    for (const auto& order : orders) {
-      cout << "Order ID: " << order.GetOrderID() << " | Order Date: " << order.GetOrderDate() << " | Total Amount: " << order.GetTotalAmount() << endl;
-      // Можно добавить ещё информации о заказе, если это необходимо
+
+void CustomerInterface::CancelOrder(unsigned int ID){
+  if(sysref->CancelOrder(selfID,ID)){
+      cout<< "Order with ID #"<< ID << " canceled\n";
     }
-  }
+  else {
+      cout<< "Order with that ID does not exist\n";
+
+    }
 }
-*/
+
