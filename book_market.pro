@@ -5,9 +5,13 @@ CONFIG -= qt
 
 SOURCES += main.cpp \
     book.cpp \
-    customer.cpp \
-    employee.cpp \
-    invoice.cpp
+    invoice.cpp \
+    book_system.cpp \
+    userinterface.cpp \
+    employeeinterface.cpp \
+    customerinterface.cpp \
+    user.cpp \
+    moderinterface.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
@@ -15,7 +19,10 @@ qtcAddDeployment()
 HEADERS += \
     book_system.h \
     book.h \
-    customer.h \
-    employee.h \
-    invoice.h
+    invoice.h \
+    userinterface.h \
+    customerinterface.h \
+    employeeinterface.h \
+    user.h \
+    moderinterface.h
 
