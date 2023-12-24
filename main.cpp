@@ -87,6 +87,7 @@ int main()
             U->SetSelfID(ID);
             U->setsysref(S);
             U->Menu();
+            delete &U;
         }
         else
         {
@@ -130,6 +131,7 @@ int main()
             U->SetSelfStatus(c);
             U->setsysref(S);
             U->Menu();
+            delete &U;
         }
         else
         {
@@ -173,6 +175,7 @@ int main()
             U->SetSelfStatus(c);
             U->setsysref(S);
             U->Menu();
+            delete &U;
         }
         else
         {
@@ -192,5 +195,6 @@ int main()
     }
 
     } while(c);
+    delete S;
     return 0;
 }
