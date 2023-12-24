@@ -16,6 +16,8 @@ public:
     void DeleteBook();
     void NewBook();
     void Receipt();
+    void Invoice();
+    void Accept();
 };
 
 #endif // EMPLOYEE

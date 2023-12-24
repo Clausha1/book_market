@@ -12,6 +12,8 @@ cout << "5) Show all Users"<<endl;
 cout << "6) Delete Book"<<endl;
 cout << "7) Add Book"<<endl;
 cout << "8) Receipt of product"<<endl;
+cout << "9) Invoice"<<endl;
+cout << "10) Accept the order"<<endl;
 cout << "0) Exit" << endl;
 cout << endl;
 cout << "Select action: ";
@@ -25,28 +27,44 @@ case 0:
 
 break;
 case 1:
+    system("cls");
     Show();
 break;
 case 2:
+    system("cls");
     Find();
 break;
 case 3:
+    system("cls");
     Sort();
 break;
 case 4:
+    system("cls");
     EditBook();
 break;
 case 5:
+    system("cls");
     ShowAllUsers();
 break;
 case 6:
+    system("cls");
     DeleteBook();
 break;
 case 7:
+    system("cls");
     NewBook();
 break;
 case 8:
+    system("cls");
     Receipt();
+break;
+case 9:
+    system("cls");
+    Invoice();
+break;
+case 10:
+    system("cls");
+    Accept();
 break;
 }
 }
@@ -75,6 +93,16 @@ void EmployeeInterface::ShowAllUsers()
     system("pause");
     system("cls");
     Menu();
+}
+
+void EmployeeInterface::Accept()
+{
+
+}
+
+void EmployeeInterface::Invoice()
+{
+
 }
 
 void EmployeeInterface::Receipt()
@@ -142,11 +170,11 @@ void EmployeeInterface::DeleteBook()
     switch (del)
     {
     case 0:
-        cout << "User is not Exist" << endl;
+        cout << "Book is not Exist" << endl;
     break;
 
     case 1:
-        cout << "User Deleted" << endl;
+        cout << "Book Deleted" << endl;
     break;
     }
 

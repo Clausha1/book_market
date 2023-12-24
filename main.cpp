@@ -56,6 +56,7 @@ int main()
     unsigned int c;
     bool isexituser = 0;
     do{
+    system("cls");
     cout << "Customer (1) or Employee (2) or Moder (3) or Escape(0): ";
     cin >> c;
     cout << endl;
@@ -65,6 +66,7 @@ int main()
         string pass;
         bool isexist = 0;
         do{
+        system("cls");
         cout << "Input your Nickname: ";
         cin >> name;
         cout << "Input your Password: ";
@@ -75,6 +77,7 @@ int main()
         {
           if (((*it)->GetStatus() == c) && ((*it)->GetNickname() == name) && ((*it)->GetPassword() == pass))
             {
+              system("cls");
               cout << "Login is successful" << endl;
               ID=(*it)->GetUserID();
               isexist = 1;
@@ -107,6 +110,7 @@ int main()
         string pass;
         bool isexist = 0;
         do{
+        system("cls");
         cout << "Input your Nickname: ";
         cin >> name;
         cout << "Input your Password: ";
@@ -117,6 +121,7 @@ int main()
         {
           if (((*it)->GetStatus() == c) && ((*it)->GetNickname() == name) && ((*it)->GetPassword() == pass))
             {
+              system("cls");
               cout << "Login is successful" << endl;
               isexist = 1;
               break;
@@ -148,6 +153,7 @@ int main()
         string pass;
         bool isexist = 0;
         do{
+        system("cls");
         cout << "Input your Nickname: ";
         cin >> name;
         cout << "Input your Password: ";
@@ -158,6 +164,7 @@ int main()
         {
           if (((*it)->GetStatus() == c) && ((*it)->GetNickname() == name) && ((*it)->GetPassword() == pass))
             {
+              system("cls");
               cout << "Login is successful" << endl;
               isexist = 1;
               break;

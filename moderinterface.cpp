@@ -25,27 +25,35 @@ case 0:
 
 break;
 case 1:
+    system("cls");
     Show();
 break;
 case 2:
+    system("cls");
     Find();
 break;
 case 3:
+    system("cls");
     Sort();
 break;
 case 4:
+    system("cls");
     EditBook();
 break;
 case 5:
+    system("cls");
     ShowAllUsers();
 break;
 case 6:
+    system("cls");
     DeleteBook();
 break;
 case 7:
+    system("cls");
     NewBook();
 break;
 case 8:
+    system("cls");
     ShowAllUsers();
     DeleteUser();
 break;
