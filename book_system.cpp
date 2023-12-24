@@ -492,7 +492,7 @@ bool BookSystem::InvoiceToFile()
     {
       file << "Book ID Book Name Quantity Price\n";
       file << (*it).GetBookID() << " " << (*it).GetBookName() << " " << (*it).GetQuantity() << " " << (*it).GetBookPrice() << "\n";
-      sum += (*it).GetQuantity() * (*it).GetBookPrice();
+      sum -= (*it).GetQuantity() * (*it).GetBookPrice();
       delete &(*it);
     }
   for (vector<Book>::iterator it=outcome.begin(); it!=outcome.end(); it++)
