@@ -195,6 +195,5 @@ int main()
     }
 
     } while(c);
-
     return 0;
 }
