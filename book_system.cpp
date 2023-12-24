@@ -442,7 +442,7 @@ bool BookSystem::CancelOrder(unsigned int userID, unsigned int ID)
                     if ((*it2)==(*it3)->GetBookID())
                       {
                         (*it3)->SetOrderedQuantity((*it3)->GetOrderedQuantity()-1);
-                        (*it3)->SetQuantity((*it3)->GetQuantity()-1);
+                        (*it3)->SetQuantity((*it3)->GetQuantity()+1);
                       }
                   }
               }
@@ -460,7 +460,7 @@ bool BookSystem::AcceptOrder(unsigned int ID)
   Order* order;
   for (vector<Order*>::iterator it=orders.begin(); it!=orders.end();it++)
     {
-      if (((*it)->orderID == ID) && ((*it)->status))
+      if (((*it)->orderID == ID) && (!(*it)->status))
         {
           isexist = 1;
           order = *it;

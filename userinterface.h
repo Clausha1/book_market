@@ -23,7 +23,7 @@ public:
     virtual void Menu()=0;
     void SetSelfStatus(unsigned int s);
     void SetSelfID(unsigned int ID);
-    void ShowAllOrders(vector<Order*> orders);
+    void ShowAllOrders(vector<Order*> orders, bool status);
 };
 
 #endif // USER_H

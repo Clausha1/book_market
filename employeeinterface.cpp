@@ -14,12 +14,14 @@ cout << "7) Add Book"<<endl;
 cout << "8) Receipt of product"<<endl;
 cout << "9) Invoice"<<endl;
 cout << "10) Accept the order"<<endl;
+cout << "11) Provide the order"<<endl;
 cout << "0) Exit" << endl;
 cout << endl;
 cout << "Select action: ";
 int x;
 cin >> x;
 cout << endl;
+vector<Order*> v1=sysref->GetAllOrders();
 
 switch(x)
 {
@@ -64,7 +66,15 @@ case 9:
 break;
 case 10:
     system("cls");
+    ShowAllOrders(v1, 1);
+    ShowAllOrders(v1, 0);
     Accept();
+break;
+case 11:
+    system("cls");
+    ShowAllOrders(v1, 1);
+    ShowAllOrders(v1, 0);
+    Provide();
 break;
 }
 }
@@ -97,7 +107,38 @@ void EmployeeInterface::ShowAllUsers()
 
 void EmployeeInterface::Accept()
 {
+    unsigned int ID;
+    cout << "Enter order ID: ";
+    cin >> ID;
+    if(sysref->AcceptOrder(ID))
+    {
+        cout << "Order accepted" << endl;
+    }
+    else
+    {
+        cout << "Order with this ID is not exist" << endl;
+    }
+    system("pause");
+    system("cls");
+    Menu();
+}
 
+void EmployeeInterface::Provide()
+{
+    unsigned int ID;
+    cout << "Enter order ID: ";
+    cin >> ID;
+    if(sysref->ProvideOrder(ID))
+    {
+        cout << "Order provided" << endl;
+    }
+    else
+    {
+        cout << "Order with this ID is not exist" << endl;
+    }
+    system("pause");
+    system("cls");
+    Menu();
 }
 
 void EmployeeInterface::Invoice()

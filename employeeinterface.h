@@ -18,6 +18,7 @@ public:
     void Receipt();
     void Invoice();
     void Accept();
+    void Provide();
 };
 
 #endif // EMPLOYEE
