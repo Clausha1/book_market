@@ -250,6 +250,7 @@ bool BookSystem::Receipt(unsigned int ID, unsigned int q, unsigned int p)
   Book b = *bookref;
   b.SetBookPrice(p);
   b.SetQuantity(q);
+  b.ClearBuyerID();
   invoice->SetIncome(b);
   return 1;
 }
@@ -315,7 +316,7 @@ bool BookSystem::ProvideOrder(unsigned int ID)
   Order* order;
   for (vector<Order*>::iterator it=orders.begin(); it!=orders.end();it++)
     {
-      if (((*it)->orderID == ID) && (!(*it)->status))
+      if (((*it)->orderID == ID) && ((*it)->status))
         {
           isexist = 1;
           order = *it;
@@ -328,8 +329,66 @@ bool BookSystem::ProvideOrder(unsigned int ID)
     }
   for (vector<Book*>::iterator it=books.begin(); it!=books.end(); it++)
     {
-
+      for(vector<unsigned int>::iterator it2=order->cart.begin(); it2!=order->cart.begin(); it2++)
+    {
+        if ((*it2)==(*it)->GetBookID())
+          {
+              (*it)->SetOrderedQuantity((*it)->GetOrderedQuantity()-1);
+             (*it)->SetQuantity((*it)->GetQuantity()-1);
+          }
     }
+    }
+  vector<Order*> ord = GetAllOrders(order->userID);
+  isexist=0;
+  Book* b;
+
+      for (vector<unsigned int>::iterator it=order->cart.begin();it!=order->cart.end();it++)
+        {
+          for (vector<Book*>::iterator it2=books.begin(); it2!=books.end(); it2++)
+            {
+              if ((*it2)->GetBookID()==(*it))
+                {
+                  b=*it2;
+                  break;
+                }
+            }
+          for (vector<Order*>::iterator it2=ord.begin(); it2!=ord.end();it2++)
+            {
+      for (vector<unsigned int>::iterator it3=(*it2)->cart.begin();it3!=(*it2)->cart.end(); it3++)
+        {
+          if ((*it)==(*it3))
+            {
+              isexist=1;
+              break;
+            }
+
+        }
+      if(isexist)
+        {
+          break;
+        }
+        }
+          if(!isexist)
+            {
+              b->DeleteBuyerID(order->userID);
+            }
+        }
+      Book bc(0);
+  for (vector<unsigned int>::iterator it=order->cart.begin();it!=order->cart.end();it++)
+    {
+      for (vector<Book*>::iterator it2=books.begin(); it2!=books.end(); it2++)
+        {
+          if((*it2)->GetBookID()==(*it))
+            {
+          bc =*(*it2);
+          bc.ClearBuyerID();
+          bc.SetOrderedQuantity(0);
+          bc.SetQuantity(1);
+          invoice->SetOutcome(bc);
+            }
+        }
+    }
+  return 1;
 }
 
 
@@ -392,4 +451,26 @@ bool BookSystem::CancelOrder(unsigned int userID, unsigned int ID)
           }
      }
    return 0;
+}
+
+
+bool BookSystem::AcceptOrder(unsigned int ID)
+{
+  bool isexist =0;
+  Order* order;
+  for (vector<Order*>::iterator it=orders.begin(); it!=orders.end();it++)
+    {
+      if (((*it)->orderID == ID) && ((*it)->status))
+        {
+          isexist = 1;
+          order = *it;
+          break;
+        }
+    }
+  if (!isexist)
+    {
+      return 0;
+    }
+  order->status=1;
+  return 1;
 }
