@@ -510,6 +510,8 @@ bool BookSystem::InvoiceToFile()
     }
   file << sum;
   file.close();
+  delete invoice;
+  NewInvoice();
   delete path;
   return 1;
 }
