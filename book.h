@@ -42,6 +42,8 @@ public:
   string GetLocation();
   string GetBookName();
   vector<unsigned int> GetBuyerID();
+  void DeleteBuyerID(unsigned int ID);
+  void ClearBuyerID();
 };
 #endif // BOOK
 

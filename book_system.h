@@ -34,6 +34,7 @@ public:
   vector<User*> GetAllUsers();
   bool PushToOrders(unsigned int ID, vector<unsigned int> cart);
   bool CancelOrder(unsigned int userID, unsigned int ID);
+  bool AcceptOrder(unsigned int ID);
   bool ProvideOrder(unsigned int ID);
   vector<Order*> GetAllOrders();
   vector<Order*> GetAllOrders(unsigned int ID);

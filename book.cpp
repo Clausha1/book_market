@@ -62,3 +62,19 @@ unsigned int Book::GetOrderedQuantity()
 {
   return orderedquantity;
 }
+
+void Book::ClearBuyerID()
+{
+  buyerID.clear();
+}
+
+void Book::DeleteBuyerID(unsigned int ID)
+{
+  for (vector<unsigned int>::iterator it = buyerID.begin(); it!=buyerID.end(); it++)
+    {
+      if ((*it)==ID)
+        {
+          buyerID.erase(it);
+        }
+    }
+}
