@@ -132,7 +132,7 @@ void ModerInterface::DeleteBook()
     switch (del)
     {
     case 0:
-        cout << "Book is not Exist" << endl;
+        cout << "Book is not Exist or ordered quantity is not null" << endl;
     break;
 
     case 1:

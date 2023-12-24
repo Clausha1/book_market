@@ -15,6 +15,8 @@ public:
     bool IsOutcomeEmpty();
     vector<Book> GetIncome();
     vector<Book> GetOutcome();
+
+    ~Invoice();
 };
 
 #endif // INVOICE

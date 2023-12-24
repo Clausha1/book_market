@@ -478,40 +478,35 @@ bool BookSystem::AcceptOrder(unsigned int ID)
 
 bool BookSystem::InvoiceToFile()
 {
-  if (invoice->IsIncomeEmpty() && invoice->IsOutcomeEmpty())
+  if (!(invoice->IsIncomeEmpty() || invoice->IsOutcomeEmpty()))
     {
       return 0;
     }
-  time_t t;
-  time(&t);
-  char* path= _getcwd(0, 1024);
-   strcat(path, "/Invoice");
-   strcat(path, asctime(gmtime(&t)));
-   strcat(path, ".txt");
-  ofstream file(path , ios::app);
+
+
+  ofstream file("D:\\CommandProject\\New2\\Invoice\\1.txt" , ios::app);
   vector<Book> income = invoice->GetIncome();
   vector<Book> outcome = invoice->GetOutcome();
   int16_t sum=0;
-  for (vector<Book>::iterator it=income.begin(); it!=income.end();)
+  for (vector<Book>::iterator it=income.begin(); it!=income.end(); it++)
     {
       file << "Book ID Book Name Quantity Price\n";
       file << (*it).GetBookID() << " " << (*it).GetBookName() << " " << (*it).GetQuantity() << " " << (*it).GetBookPrice() << "\n";
       sum += (*it).GetQuantity() * (*it).GetBookPrice();
       delete &(*it);
-      income.pop_back();
     }
-  for (vector<Book>::iterator it=outcome.begin(); it!=outcome.end();)
+  for (vector<Book>::iterator it=outcome.begin(); it!=outcome.end(); it++)
     {
       file << "Book ID Book Name Quantity Price\n";
       file << (*it).GetBookID() << " " << (*it).GetBookName() << " " << (*it).GetQuantity() << " " << (*it).GetBookPrice() << "\n";
       sum += (*it).GetQuantity() * (*it).GetBookPrice();
       delete &(*it);
-      outcome.pop_back();
     }
-  file << sum;
+  income.clear();
+  outcome.clear();
+  file << "Document summary: " << sum << "\n";
   file.close();
   delete invoice;
   NewInvoice();
-  delete path;
   return 1;
 }
