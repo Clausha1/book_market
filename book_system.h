@@ -2,8 +2,13 @@
 #define _BOOK_SYSTEM_H_
 #include "invoice.h"
 #include "book.h"
-#include "user.h"\
-
+#include "user.h"
+#include <time.h>
+#include <direct.h>
+#include <inttypes.h>
+#include <fstream>
+#include <sstream>
+#include <iostream>
 struct Order
 {
 public:
@@ -28,7 +33,6 @@ public:
   bool DeleteBook(unsigned int ID);
   bool DeleteUser(unsigned int ID, unsigned int selfID);
   void NewInvoice();
-  void InvoiceInFile();
   unsigned int EditBook(unsigned int ID, string Name, unsigned int q, string Loc, unsigned int p);
   vector<Book*> GetAllBooks();
   vector<User*> GetAllUsers();
@@ -41,6 +45,7 @@ public:
   vector<Book*> Sort(int par, bool s);
   vector<Book*> Find(string Name);
   bool Receipt(unsigned int ID, unsigned int q, unsigned int p);
+  bool InvoiceToFile();
 };
 #endif // BOOK_SYSTEM
 

@@ -460,7 +460,7 @@ bool BookSystem::AcceptOrder(unsigned int ID)
   Order* order;
   for (vector<Order*>::iterator it=orders.begin(); it!=orders.end();it++)
     {
-      if (((*it)->orderID == ID) && ((*it)->status))
+      if (((*it)->orderID == ID) && (!(*it)->status))
         {
           isexist = 1;
           order = *it;
@@ -472,5 +472,44 @@ bool BookSystem::AcceptOrder(unsigned int ID)
       return 0;
     }
   order->status=1;
+  return 1;
+}
+
+
+bool BookSystem::InvoiceToFile()
+{
+  if (invoice->IsIncomeEmpty() && invoice->IsOutcomeEmpty())
+    {
+      return 0;
+    }
+  time_t t;
+  time(&t);
+  char* path= _getcwd(0, 1024);
+   strcat(path, "/Invoice");
+   strcat(path, asctime(gmtime(&t)));
+   strcat(path, ".txt");
+  ofstream file(path , ios::app);
+  vector<Book> income = invoice->GetIncome();
+  vector<Book> outcome = invoice->GetOutcome();
+  int16_t sum=0;
+  for (vector<Book>::iterator it=income.begin(); it!=income.end();)
+    {
+      file << "Book ID Book Name Quantity Price\n";
+      file << (*it).GetBookID() << " " << (*it).GetBookName() << " " << (*it).GetQuantity() << " " << (*it).GetBookPrice() << "\n";
+      sum += (*it).GetQuantity() * (*it).GetBookPrice();
+      delete &(*it);
+      income.pop_back();
+    }
+  for (vector<Book>::iterator it=outcome.begin(); it!=outcome.end();)
+    {
+      file << "Book ID Book Name Quantity Price\n";
+      file << (*it).GetBookID() << " " << (*it).GetBookName() << " " << (*it).GetQuantity() << " " << (*it).GetBookPrice() << "\n";
+      sum += (*it).GetQuantity() * (*it).GetBookPrice();
+      delete &(*it);
+      outcome.pop_back();
+    }
+  file << sum;
+  file.close();
+  delete path;
   return 1;
 }

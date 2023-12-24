@@ -13,6 +13,8 @@ public:
     bool IsIncomeEmpty();
     void SetOutcome(Book b);
     bool IsOutcomeEmpty();
+    vector<Book> GetIncome();
+    vector<Book> GetOutcome();
 };
 
 #endif // INVOICE

@@ -1,6 +1,3 @@
-#include <iostream>
-#include "user.h"
-#include "book.h"\
 #include "userinterface.h"
 #include "customerinterface.h"
 #include "moderinterface.h"

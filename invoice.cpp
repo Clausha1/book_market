@@ -19,3 +19,13 @@ bool Invoice::IsOutcomeEmpty()
 {
   return outcome.empty();
 }
+
+vector<Book> Invoice::GetIncome()
+{
+  return income;
+}
+
+vector<Book> Invoice::GetOutcome()
+{
+  return outcome;
+}
