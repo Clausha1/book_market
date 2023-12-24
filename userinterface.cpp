@@ -23,14 +23,14 @@ void UserInterface::ShowBook(vector<Book*> Books)
         cout << setfill(' ') << left << setw(20) << Books[i]->GetBookPrice() << "\n";
       }
 }
-void UserInterface::ShowAllOrders(vector<Order*> orders){
+void UserInterface::ShowAllOrders(vector<Order*> orders, bool status){
   for (vector<Order*>::iterator it= orders.begin();it!=orders.end();it++){
       cout << "Order#" << (*it)->orderID <<endl;
       vector<Book*> b=sysref->GetAllBooks();
       vector <Book*> a;
       for (vector<Book*>::iterator it2=b.begin(); it2!=b.end(); it2++){
           for (vector<unsigned int>::iterator it3=(*it)->cart.begin();it3!=(*it)->cart.end();it3++){
-              if ((*it2)->GetBookID()==*it3){
+              if (((*it2)->GetBookID()==*it3)&&(!((*it)->status^status))){
                   a.push_back(*it2);
                 }
             }

@@ -11,36 +11,71 @@ cout << "4) Edit Book"<<endl;
 cout << "5) Show all Users"<<endl;
 cout << "6) Delete Book"<<endl;
 cout << "7) Add Book"<<endl;
+cout << "8) Receipt of product"<<endl;
+cout << "9) Invoice"<<endl;
+cout << "10) Accept the order"<<endl;
+cout << "11) Provide the order"<<endl;
+cout << "0) Exit" << endl;
 cout << endl;
 cout << "Select action: ";
 int x;
 cin >> x;
 cout << endl;
+vector<Order*> v1=sysref->GetAllOrders();
 
 switch(x)
 {
+case 0:
+
+break;
 case 1:
+    system("cls");
     Show();
 break;
 case 2:
+    system("cls");
     Find();
 break;
 case 3:
+    system("cls");
     Sort();
 break;
 case 4:
+    system("cls");
     EditBook();
 break;
 case 5:
+    system("cls");
     ShowAllUsers();
 break;
 case 6:
+    system("cls");
     DeleteBook();
 break;
 case 7:
+    system("cls");
     NewBook();
 break;
-
+case 8:
+    system("cls");
+    Receipt();
+break;
+case 9:
+    system("cls");
+    Invoice();
+break;
+case 10:
+    system("cls");
+    ShowAllOrders(v1, 1);
+    ShowAllOrders(v1, 0);
+    Accept();
+break;
+case 11:
+    system("cls");
+    ShowAllOrders(v1, 1);
+    ShowAllOrders(v1, 0);
+    Provide();
+break;
 }
 }
 
@@ -70,6 +105,69 @@ void EmployeeInterface::ShowAllUsers()
     Menu();
 }
 
+void EmployeeInterface::Accept()
+{
+    unsigned int ID;
+    cout << "Enter order ID: ";
+    cin >> ID;
+    if(sysref->AcceptOrder(ID))
+    {
+        cout << "Order accepted" << endl;
+    }
+    else
+    {
+        cout << "Order with this ID is not exist" << endl;
+    }
+    system("pause");
+    system("cls");
+    Menu();
+}
+
+void EmployeeInterface::Provide()
+{
+    unsigned int ID;
+    cout << "Enter order ID: ";
+    cin >> ID;
+    if(sysref->ProvideOrder(ID))
+    {
+        cout << "Order provided" << endl;
+    }
+    else
+    {
+        cout << "Order with this ID is not exist" << endl;
+    }
+    system("pause");
+    system("cls");
+    Menu();
+}
+
+void EmployeeInterface::Invoice()
+{
+
+}
+
+void EmployeeInterface::Receipt()
+{
+    unsigned int ID;
+    unsigned int q;
+    unsigned int p;
+    ShowBook(sysref->GetAllBooks());
+    cout << endl;
+    cout << "Enter book ID: ";
+    cin >> ID;
+    cout << "Enter book Quantity: ";
+    cin >> q;
+    cout << "Enter book Price: ";
+    cin >> p;
+    if(sysref->Receipt(ID, q, p))
+    {
+        cout << "Successfully Conducted" << endl;
+    }
+    system("pause");
+    system("cls");
+    Menu();
+}
+
 void EmployeeInterface::NewBook()
 {
     string Name;
@@ -90,7 +188,7 @@ void EmployeeInterface::NewBook()
     switch (add)
     {
     case 0:
-        cout << "Book with that ID is not exist" << endl;
+        cout << "This book is Exist" << endl;
     break;
 
     case 1:
@@ -113,11 +211,11 @@ void EmployeeInterface::DeleteBook()
     switch (del)
     {
     case 0:
-        cout << "User is not Exist" << endl;
+        cout << "Book is not Exist" << endl;
     break;
 
     case 1:
-        cout << "User Deleted" << endl;
+        cout << "Book Deleted" << endl;
     break;
     }
 

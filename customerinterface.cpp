@@ -24,6 +24,7 @@ cout << "7) Clear Cart" << endl;
 cout << "8) Provide Order" << endl;
 cout << "9) ShowAllOrders" << endl;
 cout << "10) Cancel Order" << endl;
+cout << "0) Exit" << endl;
 cout << endl;
 cout << "Select action: ";
 int x;
@@ -34,17 +35,25 @@ vector<Order*> v1=sysref->GetAllOrders(selfID);
 unsigned int orderID;
 
 switch(x) {
+case 0:
+
+break;
 case 1:
+system("cls");
 Show();
 break;
 case 2:
+system("cls");
 Find();
 break;
 case 3:
+system("cls");
 Sort();
 break;
 case 4:
+system("cls");
 unsigned int order;
+ShowBook(sysref->GetAllBooks());
 cout<< "Write ID of a book you want to order: ";
 cin >> order;
 if (AddToCart(order)){
@@ -58,12 +67,14 @@ system("cls");
 Menu();
     break;
 case 5:
+system("cls");
 ShowCart();
 system("pause");
 system("cls");
 Menu();
     break;
   case 6:
+system("cls");
         cout << "Enter ID of the order you want to cancel: ";
         cin >> orderID;
         cout << endl;
@@ -77,14 +88,16 @@ Menu();
         system("cls");
         Menu();
 
-
+break;
 case 7:
+system("cls");
 ClearCart();
 system("pause");
 system("cls");
 Menu();
     break;
   case 8:
+    system("cls");
     PlaceOrder();
     ClearCart();
     system("pause");
@@ -92,14 +105,18 @@ Menu();
     Menu();
     break;
   case 9:
-    ShowAllOrders(v1);
+    system("cls");
+    ShowAllOrders(v1, 1);
+    ShowAllOrders(v1, 0);
     system("pause");
     system("cls");
     Menu();
     break;
 
   case 10:
-    ShowAllOrders(v1);
+    system("cls");
+    ShowAllOrders(v1, 1);
+    ShowAllOrders(v1, 0);
     cout<< "Enter order ID: ";
     cin>> orderID;
     CancelOrder(orderID);

@@ -7,6 +7,7 @@
 int main()
 {
     BookSystem *S = new BookSystem;
+    S->NewInvoice();
     S->NewUser("mod","mod", 3);
 
     if(S->NewBook("ABCD", 10, "F7", 1))
@@ -52,7 +53,8 @@ int main()
     unsigned int c;
     bool isexituser = 0;
     do{
-    cout << "Customer (1) or Employee (2) or Moder (3): ";
+    system("cls");
+    cout << "Customer (1) or Employee (2) or Moder (3) or Escape(0): ";
     cin >> c;
     cout << endl;
     if(c == 1 )
@@ -61,6 +63,7 @@ int main()
         string pass;
         bool isexist = 0;
         do{
+        system("cls");
         cout << "Input your Nickname: ";
         cin >> name;
         cout << "Input your Password: ";
@@ -71,6 +74,7 @@ int main()
         {
           if (((*it)->GetStatus() == c) && ((*it)->GetNickname() == name) && ((*it)->GetPassword() == pass))
             {
+              system("cls");
               cout << "Login is successful" << endl;
               ID=(*it)->GetUserID();
               isexist = 1;
@@ -87,9 +91,9 @@ int main()
         else
         {
             cout << "User is not exist or invalid password" << endl;
+            cout << "Do you want to rewrite? (1) Yes; (0) No: ";
+            cin >> isexituser;
         }
-        cout << "Do you want to rewrite? (1) Yes; (0) No: ";
-        cin >> isexituser;
         if(!isexituser)
         {
            break;
@@ -103,6 +107,7 @@ int main()
         string pass;
         bool isexist = 0;
         do{
+        system("cls");
         cout << "Input your Nickname: ";
         cin >> name;
         cout << "Input your Password: ";
@@ -113,6 +118,7 @@ int main()
         {
           if (((*it)->GetStatus() == c) && ((*it)->GetNickname() == name) && ((*it)->GetPassword() == pass))
             {
+              system("cls");
               cout << "Login is successful" << endl;
               isexist = 1;
               break;
@@ -128,9 +134,9 @@ int main()
         else
         {
             cout << "User is not exist or invalid password" << endl;
-        }
-        cout << "Do you want to rewrite? (1) Yes; (0) No: ";
-        cin >> isexituser;
+            cout << "Do you want to rewrite? (1) Yes; (0) No: ";
+            cin >> isexituser;
+        }        
         if(!isexituser)
         {
            break;
@@ -144,6 +150,7 @@ int main()
         string pass;
         bool isexist = 0;
         do{
+        system("cls");
         cout << "Input your Nickname: ";
         cin >> name;
         cout << "Input your Password: ";
@@ -154,6 +161,7 @@ int main()
         {
           if (((*it)->GetStatus() == c) && ((*it)->GetNickname() == name) && ((*it)->GetPassword() == pass))
             {
+              system("cls");
               cout << "Login is successful" << endl;
               isexist = 1;
               break;
@@ -169,14 +177,18 @@ int main()
         else
         {
             cout << "User is not exist or invalid password" << endl;
+            cout << "Do you want to rewrite? (1) Yes; (0) No: ";
+            cin >> isexituser;
         }
-        cout << "Do you want to rewrite? (1) Yes; (0) No: ";
-        cin >> isexituser;
         if(!isexituser)
         {
            break;
         }
         } while(!isexist);
+    }
+    if(c == 0)
+    {
+        break;
     }
 
     } while(c);

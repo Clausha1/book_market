@@ -12,6 +12,7 @@ cout << "5) Show all Users"<<endl;
 cout << "6) Delete Book"<<endl;
 cout << "7) Add Book"<<endl;
 cout << "8) Delete User" << endl;
+cout << "0) Exit" << endl;
 cout << endl;
 cout << "Select action: ";
 int x;
@@ -20,28 +21,39 @@ cout << endl;
 
 switch(x)
 {
+case 0:
+
+break;
 case 1:
+    system("cls");
     Show();
 break;
 case 2:
+    system("cls");
     Find();
 break;
 case 3:
+    system("cls");
     Sort();
 break;
 case 4:
+    system("cls");
     EditBook();
 break;
 case 5:
+    system("cls");
     ShowAllUsers();
 break;
 case 6:
+    system("cls");
     DeleteBook();
 break;
 case 7:
+    system("cls");
     NewBook();
 break;
 case 8:
+    system("cls");
     ShowAllUsers();
     DeleteUser();
 break;

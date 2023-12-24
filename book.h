@@ -19,6 +19,16 @@ public:
    orderedquantity =0;
    bookID=ID;
   }
+  Book(const Book &b)
+    {
+      bookID = b.bookID;
+      bookname = b.bookname;
+      orderedquantity = b.orderedquantity;
+      quantity = b.quantity;
+      location = b.location;
+      price = b.price;
+      buyerID = b.buyerID;
+    }
   void SetBookName(string Name);
   void SetBookPrice(unsigned int p);
   unsigned int GetBookPrice();
