@@ -12,6 +12,7 @@ cout << "5) Show all Users"<<endl;
 cout << "6) Delete Book"<<endl;
 cout << "7) Add Book"<<endl;
 cout << "8) Receipt of product"<<endl;
+cout << "0) Exit" << endl;
 cout << endl;
 cout << "Select action: ";
 int x;
@@ -20,6 +21,9 @@ cout << endl;
 
 switch(x)
 {
+case 0:
+
+break;
 case 1:
     Show();
 break;

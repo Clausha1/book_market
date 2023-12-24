@@ -56,7 +56,7 @@ int main()
     unsigned int c;
     bool isexituser = 0;
     do{
-    cout << "Customer (1) or Employee (2) or Moder (3): ";
+    cout << "Customer (1) or Employee (2) or Moder (3) or Escape(0): ";
     cin >> c;
     cout << endl;
     if(c == 1 )
@@ -89,9 +89,9 @@ int main()
         else
         {
             cout << "User is not exist or invalid password" << endl;
+            cout << "Do you want to rewrite? (1) Yes; (0) No: ";
+            cin >> isexituser;
         }
-        cout << "Do you want to rewrite? (1) Yes; (0) No: ";
-        cin >> isexituser;
         if(!isexituser)
         {
            break;
@@ -130,9 +130,9 @@ int main()
         else
         {
             cout << "User is not exist or invalid password" << endl;
-        }
-        cout << "Do you want to rewrite? (1) Yes; (0) No: ";
-        cin >> isexituser;
+            cout << "Do you want to rewrite? (1) Yes; (0) No: ";
+            cin >> isexituser;
+        }        
         if(!isexituser)
         {
            break;
@@ -171,15 +171,21 @@ int main()
         else
         {
             cout << "User is not exist or invalid password" << endl;
+            cout << "Do you want to rewrite? (1) Yes; (0) No: ";
+            cin >> isexituser;
         }
-        cout << "Do you want to rewrite? (1) Yes; (0) No: ";
-        cin >> isexituser;
         if(!isexituser)
         {
            break;
         }
         } while(!isexist);
     }
+    if(c == 0)
+    {
+        break;
+    }
 
     } while(c);
+
+    return 0;
 }

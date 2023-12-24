@@ -21,6 +21,7 @@ cout << "4) Add to cart"<< endl;
 cout << "5) Show cart"<< endl;
 cout << "6) Clear Cart" << endl;
 cout << "7) Provide Order" << endl;
+cout << "0) Exit" << endl;
 cout << endl;
 cout << "Select action: ";
 int x;
@@ -28,6 +29,9 @@ cin >> x;
 cout << endl;
 
 switch(x) {
+case 0:
+
+break;
 case 1:
 Show();
 break;
@@ -60,7 +64,7 @@ ClearCart();
 system("pause");
 system("cls");
 Menu();
-  case 7:
+case 7:
     ProvideOrder();
     ClearCart();
     system("pause");
