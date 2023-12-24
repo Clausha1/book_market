@@ -6,7 +6,7 @@ void UserInterface::ShowBook(vector<Book*> Books)
 {
     cout << setfill(' ') << left << setw(20) << "Book ID"  << "|";
     cout << setfill(' ') << left << setw(20) << "Book Name"  << "|";
-    cout << setfill(' ') << left << setw(20) << "Book Quantity" << "|";
+    cout << setfill(' ') << left << setw(28) << "Book Quantity (Ordered/All)" << "|";
     cout << setfill(' ') << left << setw(20) << "Book Location" << "|";
     cout << setfill(' ') << left << setw(20) << "Book Price" << "\t";
     cout << endl;
@@ -17,10 +17,27 @@ void UserInterface::ShowBook(vector<Book*> Books)
       {
         cout << setfill(' ') << left << setw(20) << Books[i]->GetBookID()  << "|";
         cout << setfill(' ') << left << setw(20) << Books[i]->GetBookName()  << "|";
-        cout << setfill(' ') << left << setw(20) << Books[i]->GetQuantity() << "|";
+
+        cout << setfill(' ') << right << setw(14) << Books[i]->GetOrderedQuantity()<< left << setw(1) <<"/" << left << setw(13)<< Books[i]->GetQuantity()<< "|";
         cout << setfill(' ') << left << setw(20) << Books[i]->GetLocation() << "|";
         cout << setfill(' ') << left << setw(20) << Books[i]->GetBookPrice() << "\n";
       }
+}
+void UserInterface::ShowAllOrders(vector<Order*> orders){
+  for (vector<Order*>::iterator it= orders.begin();it!=orders.end();it++){
+      cout << "Order#" << (*it)->orderID <<endl;
+      vector<Book*> b=sysref->GetAllBooks();
+      vector <Book*> a;
+      for (vector<Book*>::iterator it2=b.begin(); it2!=b.end(); it2++){
+          for (vector<unsigned int>::iterator it3=(*it)->cart.begin();it3!=(*it)->cart.end();it3++){
+              if ((*it2)->GetBookID()==*it3){
+                  a.push_back(*it2);
+                }
+            }
+        }
+      ShowBook(a);
+      a.clear();
+    }
 }
 
 void UserInterface::setsysref(BookSystem* ref)
@@ -68,4 +85,13 @@ void UserInterface::Sort()
     system ("pause");
     system("cls");
     Menu();
+}
+
+void UserInterface::SetSelfStatus(unsigned int s)
+{
+    selfstatus = s;
+}
+void UserInterface::SetSelfID(unsigned int ID)
+{
+    selfstatus = ID;
 }

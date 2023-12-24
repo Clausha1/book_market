@@ -16,7 +16,6 @@ public:
     void DeleteBook();
     void NewBook();
     void Receipt();
-    void SetSelfStatus(unsigned int s);
 };
 
 #endif // EMPLOYEE

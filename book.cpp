@@ -28,17 +28,9 @@ string Book::GetLocation()
   return location;
 }
 
-bool Book::SetBuyerID(unsigned int ID)
+void Book::SetBuyerID(unsigned int ID)
 {
-  if (quantity > buyerID.size())
-  {
      buyerID.push_back(ID);
-  return 1;
-    }
-      else
-  {
-   return 0;
-}
 }
 
 vector<unsigned int> Book::GetBuyerID()

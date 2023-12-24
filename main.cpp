@@ -70,12 +70,13 @@ int main()
         cout << "Input your Password: ";
         cin >> pass;
         vector<User*> userref = S->GetAllUsers();
-
+        unsigned int ID;
         for (vector<User*>::iterator it=userref.begin(); it!=userref.end(); it++)
         {
           if (((*it)->GetStatus() == c) && ((*it)->GetNickname() == name) && ((*it)->GetPassword() == pass))
             {
               cout << "Login is successful" << endl;
+              ID=(*it)->GetUserID();
               isexist = 1;
               break;
             }
@@ -83,6 +84,7 @@ int main()
         if (isexist)
         {
             UserInterface *U= new CustomerInterface;
+            U->SetSelfID(ID);
             U->setsysref(S);
             U->Menu();
         }

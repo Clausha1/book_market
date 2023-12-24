@@ -51,10 +51,7 @@ break;
 }
 }
 
-void EmployeeInterface::SetSelfStatus(unsigned int s)
-{
-    selfstatus = s;
-}
+
 
 void EmployeeInterface::ShowAllUsers()
 {
@@ -126,7 +123,7 @@ void EmployeeInterface::NewBook()
     break;
 
     case 1:
-        cout << "Book Created" << endl;
+        cout << "Book created" << endl;
     break;
     }
     system("pause");

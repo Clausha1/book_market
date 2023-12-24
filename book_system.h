@@ -4,15 +4,21 @@
 #include "book.h"
 #include "user.h"\
 
-struct LocList
+struct Order
 {
 public:
-  string BookName;
-  string Location;
+  unsigned int orderID;
+  bool status;
+  unsigned int userID;
+  vector<unsigned int> cart;
+  Order(unsigned int ID)
+  {
+    orderID = ID;
+  }
 };
 class BookSystem{
-protected:
-  vector<LocList> locListR;
+private:
+  vector<Order*> orders;
   vector<Book*> books;
   vector<User*> users;
   Invoice* invoice;
@@ -26,7 +32,11 @@ public:
   unsigned int EditBook(unsigned int ID, string Name, unsigned int q, string Loc, unsigned int p);
   vector<Book*> GetAllBooks();
   vector<User*> GetAllUsers();
-  vector<LocList> ListOfBuyerBooksLocations(unsigned int BuyerID);
+  bool PushToOrders(unsigned int ID, vector<unsigned int> cart);
+  bool CancelOrder(unsigned int userID, unsigned int ID);
+  bool ProvideOrder(unsigned int ID);
+  vector<Order*> GetAllOrders();
+  vector<Order*> GetAllOrders(unsigned int ID);
   vector<Book*> Sort(int par, bool s);
   vector<Book*> Find(string Name);
   bool Receipt(unsigned int ID, unsigned int q, unsigned int p);
