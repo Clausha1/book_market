@@ -484,7 +484,7 @@ bool BookSystem::InvoiceToFile()
     }
 
 
-  ofstream file("D:\\CommandProject\\New2\\Invoice\\1.txt" , ios::app);
+  ofstream file("C:\\C++ project(book market)\\book_market\\Invoice\\1.txt" , ios::app);
   vector<Book> income = invoice->GetIncome();
   vector<Book> outcome = invoice->GetOutcome();
   int16_t sum=0;
