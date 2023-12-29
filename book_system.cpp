@@ -463,7 +463,7 @@ bool BookSystem::AcceptOrder(unsigned int ID)
   order->status=1;
   for (vector<Book*>::iterator it=books.begin(); it!=books.end(); it++)
     {
-      for(vector<unsigned int>::iterator it2=order->cart.begin(); it2!=order->cart.begin(); it2++)
+      for(vector<unsigned int>::iterator it2=order->cart.begin(); it2!=order->cart.end(); it2++)
     {
         if ((*it2)==(*it)->GetBookID())
           {
